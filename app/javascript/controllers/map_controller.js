@@ -15,10 +15,10 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    console.log(markers)
   }
 
   #addMarkersToMap() {
+    console.log(this.markerValue)
     this.markersValue.forEach((marker) => {
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
