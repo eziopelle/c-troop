@@ -1,4 +1,8 @@
-<h1>Tickets#index</h1>
-<p>Find me in app/views/tickets/index.html.erb</p>
+<div class="container">
+  <h1>Tickets#index</h1>
+  <p>Find me in app/views/tickets/index.html.erb</p>
 
-<%= Ticket.all %>
+  <% @tickets.each do |ticket|%>
+  <%= ticket.total_price.to_i %>
+  <% end %>
+</div>

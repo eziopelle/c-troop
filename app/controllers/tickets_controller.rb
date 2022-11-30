@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    @tickets = policy_scope(Ticket)
   end
 
   def new
