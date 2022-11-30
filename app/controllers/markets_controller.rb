@@ -1,9 +1,8 @@
 class MarketsController < ApplicationController
   def index
-    @markets = Market.all
+    @markets = policy_scope(Market)
 
     # Marker pour géocoder (vic)
-    authorize @markets
     @markers = @markets.geocoded.map do |market|
       {
         lat: market.latitude,
