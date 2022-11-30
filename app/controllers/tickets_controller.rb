@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_action :set_market, only: %i[new create]
+
   def index
     @tickets = policy_scope(Ticket)
   end
@@ -34,6 +36,6 @@ class TicketsController < ApplicationController
   end
 
   def params_ticket
-    params.require(:ticket).permit(:total_price)
+    params.require(:ticket).permit(:date, :total_price, :user_id, :market_id)
   end
 end
