@@ -5,6 +5,7 @@ class MarketsController < ApplicationController
     # Marker pour géocoder (vic)
 
     @market = Market.find(params[:id])
+    authorize @market
     @markers = @markets.geocoded.map do |market|
       {
         lat: market.latitude,
