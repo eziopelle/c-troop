@@ -23,14 +23,39 @@ response = https.request(request)
 
 rep = JSON.parse(response.read_body)
 
-p ENV['GOOGLE_API_KEY']
 results = rep["results"]
 
 results.each do |result|
-  p result
+  puts "=========== RESULT -====================="
+  sleep 5
   lat = result["geometry"]["location"]['lat']
   lng = result["geometry"]["location"]['lng']
   name = result["name"]
+  google_id = result["place_id"]
+  if name != "Garden &shop (anciennement le Minh)"
+    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id)
+  end
+end
 
-  Market.create!(brand: name, latitude: lat, longitude: lng)
+Market.all.each do |market|
+  puts "=========== OPENING -====================="
+  sleep 5
+  url = URI("https://maps.googleapis.com/maps/api/place/details/json?fields=name%2Crating%2Cformatted_phone_number%2Copening_hours&place_id=#{market.google_id}&key=#{ENV['GOOGLE_API_KEY']}")
+
+  https = Net::HTTP.new(url.host, url.port)
+  https.use_ssl = true
+
+  request = Net::HTTP::Get.new(url)
+
+  response = https.request(request)
+
+  rep = JSON.parse(response.read_body)
+  # p rep
+
+  opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
+  market.update(opening_hours: opening_hour)
+
+puts "================= TERMINE ===================="
+
+
 end
