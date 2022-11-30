@@ -33,6 +33,6 @@ class TicketsController < ApplicationController
   end
 
   def params_ticket
-    params.require(:ticket).permit(:total_price)
+    params.require(:ticket).permit(:total_price, :photo)
   end
 end
