@@ -3,7 +3,7 @@ class MarketsController < ApplicationController
     @markets = Market.all
 
     # Marker pour géocoder (vic)
-
+    authorize @markets
     @markers = @markets.geocoded.map do |market|
       {
         lat: market.latitude,
