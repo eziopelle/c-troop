@@ -23,14 +23,13 @@ response = https.request(request)
 
 rep = JSON.parse(response.read_body)
 
-p ENV['GOOGLE_API_KEY']
 results = rep["results"]
 
 results.each do |result|
-  p result
   lat = result["geometry"]["location"]['lat']
   lng = result["geometry"]["location"]['lng']
   name = result["name"]
+  opening_hours = result["opening_hours"]["open_now"]
 
-  Market.create!(brand: name, latitude: lat, longitude: lng)
+  Market.create!(brand: name, latitude: lat, longitude: lng, opening_hours: opening_hours)
 end
