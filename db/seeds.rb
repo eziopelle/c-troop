@@ -14,6 +14,7 @@ Market.destroy_all
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2000&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
+
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
 
@@ -29,7 +30,7 @@ results.each do |result|
   lat = result["geometry"]["location"]['lat']
   lng = result["geometry"]["location"]['lng']
   name = result["name"]
-  opening_hours = result["opening_hours"]["open_now"]
+  google_id = result["place_id"]
 
-  Market.create!(brand: name, latitude: lat, longitude: lng, opening_hours: opening_hours)
+  Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id)
 end
