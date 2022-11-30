@@ -5,12 +5,12 @@ class MarketsController < ApplicationController
     # Marker pour géocoder (vic)
 
     @market = Market.find(params[:id])
+    authorize @market
     @markers = @markets.geocoded.map do |market|
       {
         lat: market.latitude,
         lng: market.longitude
         info_window: render_to_string(partial: "info_window", locals: {market: market})
-
       }
     end
   end
