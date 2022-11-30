@@ -22,6 +22,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    authorize @ticket
     @ticket = ticket.find(params[:market_id])
     @ticket.destroy
   end
