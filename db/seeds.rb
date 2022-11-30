@@ -11,8 +11,9 @@ require "uri"
 require "net/http"
 
 Market.destroy_all
+puts "========= DESTRUCTION DES MARKETS ========="
 
-url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2000&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
+url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -26,7 +27,7 @@ rep = JSON.parse(response.read_body)
 results = rep["results"]
 
 results.each do |result|
-  puts "=========== RESULT -====================="
+  puts "========= MARKET LAT LNG NAME GOOGLE_ID ========="
   sleep 5
   lat = result["geometry"]["location"]['lat']
   lng = result["geometry"]["location"]['lng']
@@ -38,8 +39,8 @@ results.each do |result|
 end
 
 Market.all.each do |market|
-  puts "=========== OPENING -====================="
-  sleep 5
+  puts "========= CHARGEMENT DES HORAIRES ========="
+  sleep 10
   url = URI("https://maps.googleapis.com/maps/api/place/details/json?fields=name%2Crating%2Cformatted_phone_number%2Copening_hours&place_id=#{market.google_id}&key=#{ENV['GOOGLE_API_KEY']}")
 
   https = Net::HTTP.new(url.host, url.port)
@@ -55,7 +56,6 @@ Market.all.each do |market|
   opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
   market.update(opening_hours: opening_hour)
 
-puts "================= TERMINE ===================="
-
+puts "========= JE SUIS ECOEURE ========="
 
 end

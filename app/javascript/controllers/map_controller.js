@@ -11,7 +11,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/eziopelle97/clb3zk9w1000214phwet42onn"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -19,14 +19,9 @@ export default class extends Controller {
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb" // <-- use your own!
-    });
   }
 
   #addMarkersToMap() {
-    console.log(this.markerValue)
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       new mapboxgl.Marker()
