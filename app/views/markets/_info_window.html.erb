@@ -1,2 +1,12 @@
+
 <h2><%= market.brand %></h2>
-<p><%= market.opening_hours %></p>
+<p><%= market.address %></p>
+<div class="map-info">
+  <h2>122€</h2>
+  <p>Montant du panier moyen</p>
+</div>
+<div class="map-info">
+  <h2>-20%</h2>
+  <p>par rapport à la moyenne nationale</p>
+</div>
+<%= link_to "20 minutes", root_path, class: 'btn-flat'  %>
