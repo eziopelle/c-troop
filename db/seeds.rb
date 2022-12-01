@@ -55,7 +55,5 @@ Market.all.each do |market|
 
   opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
   market.update(opening_hours: opening_hour)
-
-puts "========= JE SUIS ECOEURE ========="
-
 end
+puts "========= JE SUIS ECOEURE ========="
