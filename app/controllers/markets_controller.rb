@@ -7,7 +7,8 @@ class MarketsController < ApplicationController
       {
         lat: market.latitude,
         lng: market.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {market: market})
+        info_window: render_to_string(partial: "info_window", locals: {market: market}),
+        image_url: helpers.asset_url("ping-vert.png")
 
       }
     end
