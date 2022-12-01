@@ -4,8 +4,10 @@
 @import "config/bootstrap_variables";
 
 // External libraries
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+//ajout vic
 
 // Your CSS partials
 @import "components/index";
