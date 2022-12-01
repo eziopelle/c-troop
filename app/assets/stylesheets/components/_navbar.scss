@@ -1,12 +1,37 @@
+$size-img: 70px;
+
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $blue;
+  position: sticky;
+  bottom: 0px;
+  z-index: 3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .details {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+    #icone-photo {
+      position: absolute;
+      left: calc(50% - #{$size-img / 2});
+      top: -40px;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-lewagon img {
   width: 40px;
+}
+
+img#icone-photo {
+  width: $size-img;
 }

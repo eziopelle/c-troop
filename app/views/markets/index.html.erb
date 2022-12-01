@@ -1,7 +1,5 @@
-<h1>Markets#index</h1>
-<p>Find me in app/views/markets/index.html.erb</p>
-
-<div style="width: 100%; height: 600px;"
+<div style="width: 100%; height: 100vh; margin: auto"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
