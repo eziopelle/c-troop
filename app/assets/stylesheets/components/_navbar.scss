@@ -1,4 +1,4 @@
-$size-img: 40px;
+$size-img: 70px;
 
 
 .navbar-lewagon {
@@ -7,6 +7,8 @@ $size-img: 40px;
   position: sticky;
   bottom: 0px;
   z-index: 3;
+  padding-top: 20px;
+  padding-bottom: 20px;
   .details {
     height: 100%;
     width: 100%;
@@ -14,7 +16,7 @@ $size-img: 40px;
     display: flex;
     justify-content: space-around;
 
-    #photo {
+    #icone-photo {
       position: absolute;
       left: calc(50% - #{$size-img / 2});
       top: -40px;
@@ -27,5 +29,9 @@ $size-img: 40px;
 }
 
 .navbar-lewagon img {
+  width: 40px;
+}
+
+img#icone-photo {
   width: $size-img;
 }
