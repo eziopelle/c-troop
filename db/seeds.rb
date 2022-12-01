@@ -34,7 +34,10 @@ results.each do |result|
   name = result["name"]
   google_id = result["place_id"]
   if name != "Garden &shop (anciennement le Minh)"
-    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id)
+    geo_localization = "#{lat},#{lng}"
+    location = Geocoder.search(geo_localization).first
+    address = "#{location.house_number} #{location.street} #{location.city}"
+    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address)
   end
 end
 
