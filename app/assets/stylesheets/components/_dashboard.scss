@@ -1,0 +1,77 @@
+.dashbooard h2 {
+  justify-items: center;
+  color: white;
+  margin-left: 10px;
+}
+.all-dashboard {
+  background-color: #05152D;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  height: 100vh;
+}
+
+
+.show-cards {
+//   display: flex;
+//   justify-content: center;
+//   margin: 60px;
+//   border-radius: 10px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.1)
+  background-color: #22354F;
+  color: white;
+}
+
+.price-dashboard {
+  margin-bottom: 20px;
+}
+
+.map-dashboard {
+  justify-content: space-between;
+  align-items: flex;
+  // display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.total-price {
+  font-size: 20px;
+  display: flex;
+  color: white;
+}
+
+.dashboard-created-at {
+  font-size: 15px;
+}
+
+.flexito {
+  display: flex;
+  border-bottom: 10px;
+}
+
+.blockito {
+  display: block;
+}
+
+.last-total-price {
+  font-size: 23px;
+  margin-left: 50px;
+}
+
+.each-last {
+margin-bottom: 10px;
+padding: 5px;
+}
+
+.show-cards p {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  }
+
+.total-sum-per-month {
+  text-align: center;
+  display: flex;
+}

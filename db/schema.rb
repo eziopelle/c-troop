@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_145425) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_143218) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_145425) do
   end
 
   create_table "market_products", force: :cascade do |t|
-    t.decimal "price"
+    t.float "price"
     t.bigint "market_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
@@ -66,17 +67,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_145425) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.decimal "mean_price"
+    t.float "mean_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
     t.date "date"
-    t.decimal "total_price"
+    t.float "total_price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "market_id"
+    t.index ["market_id"], name: "index_tickets_on_market_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -96,5 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_145425) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "market_products", "markets"
   add_foreign_key "market_products", "products"
+  add_foreign_key "tickets", "markets"
   add_foreign_key "tickets", "users"
 end

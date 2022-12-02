@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   def index
     @tickets = policy_scope(Ticket)
+    text_detection
   end
 
   def new
@@ -8,7 +9,6 @@ class TicketsController < ApplicationController
     authorize @ticket
     @user = current_user
     @ticket.user = @user
-
   end
 
   def create
@@ -26,6 +26,16 @@ class TicketsController < ApplicationController
     authorize @ticket
     @ticket = ticket.find(params[:market_id])
     @ticket.destroy
+  end
+
+  def text_detection
+    path = "#{Rails.root}/app/assets/images/test_ticket.jpeg"
+    # path = @tickets.last.photo.url
+    @image = RTesseract.new(path, lang: 'fra')
+    @words = []
+    @image.to_box.each do |word|
+      @words << word[:word]
+    end
   end
 
   private
