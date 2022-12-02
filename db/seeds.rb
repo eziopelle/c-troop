@@ -12,6 +12,16 @@ require "net/http"
 
 Market.destroy_all
 puts "========= DESTRUCTION DES MARKETS ========="
+Product.destroy_all
+puts "========= DESTRUCTION DES PRODUCTS ========="
+User.destroy_all
+puts "========= DESTRUCTION DES USERS ========="
+
+puts "========= CREATION DES 4 USERS ========="
+User.create!(email: "victor@email.com", password: "victor1234")
+User.create!(email: "mario@email.com", password: "mario1234")
+User.create!(email: "alassane@email.com", password: "alassane1234")
+User.create!(email: "maxence@email.com", password: "maxence1234")
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
@@ -54,9 +64,21 @@ Market.all.each do |market|
   response = https.request(request)
 
   rep = JSON.parse(response.read_body)
-  # p rep
 
   opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
   market.update(opening_hours: opening_hour)
 end
+
+puts "========= GENERATION DES 11 PRODUITS ========="
+Product.create!(name: "cristalline 6x&,5L", mean_price: "")
+Product.create!(name: "Coca-Cola 1,75L", mean_price: "")
+Product.create!(name: "Nutella Pâte à tartiner 1kg", mean_price: "")
+Product.create!(name: "Caprice des Dieux 300g", mean_price: "")
+Product.create!(name: "Nutella Pâte à tartiner 825g", mean_price: "")
+Product.create!(name: "Président Beurre doux 250g", mean_price: "")
+Product.create!(name: "Carte Noire Café 3x250g", mean_price: "")
+Product.create!(name: "Catsan Litière Hygiène Plus 10L", mean_price: "")
+Product.create!(name: "Lotus Confort Papier Toilette x24", mean_price: "")
+Product.create!(name: "Sodebo Salade & Cie Manhattan", mean_price: "")
+Product.create!(name: "Herta Le Bon Paris 4 tranches", mean_price: "")
 puts "========= JE SUIS ECOEURE ========="
