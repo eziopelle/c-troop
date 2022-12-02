@@ -1,6 +1,6 @@
 <div class="container all-dashboard">
   <div class="mb-3 mt-3 dashbooard" data-controller="dashboard">
-    <h2>< Tableau de bord</h2>
+    <h2>Tableau de bord</h2>
   </div>
   <div class="show-cards" >
     <div class="total-price">
@@ -17,7 +17,6 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
     </div>
   </div>
   <div class="price-dashboard">
@@ -26,7 +25,7 @@
           <div class="blockito">
             <%= last.market.brand %>
             <div class="blockito dashboard-created-at">
-              <%= last.created_at.strftime('Créé le : %d/%m/%Y')%>
+            <%= last.created_at.strftime('Créé le : %d/%m/%Y')%>
             </div>
           </div>
           <div class="last-total-price flexito">
