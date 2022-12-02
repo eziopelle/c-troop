@@ -21,6 +21,14 @@ $size-img: 70px;
       left: calc(50% - #{$size-img / 2});
       top: -40px;
     }
+
+    #icone-photo-profil {
+      position: absolute;
+      left: 17px;
+      top: -100px;
+      border-radius: 50%;
+      width: 60px;
+    }
   }
 }
 
