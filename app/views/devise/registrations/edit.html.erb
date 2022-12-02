@@ -1,39 +1,48 @@
-<div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
-
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :photo, as: :file %>
-
+<div class="container_edit">
+  <h1 class= "text_edit_profile"><%= "ProFile" %></h1>
+    <div class="card_product_profile jutstify-content-around">
+      <div class="flex">
+          <h2 class="h2_edit_profile"><%="Nom"%></h2>
+          <h3 class="h3_edit_profile"><%="Prénom"%></h3>
+          <p class="p_edit_profile"><%="Surnom"%></p>
+      </div>
+      <div class="flexbox">
+        <%= cl_image_tag @current_user.photo.key, class:"icone-gen w-25" %>
+      </div>
     </div>
+    <div class="modif_edit_profile">
+        <h4> Modifier <%= resource_name.to_s.humanize %></h4>
+      </div>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"edit_form", style:"background-image:url(#{image_path('logo_Ctroop.png')});"}) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Update" %>
-    </div>
-  <% end %>
+      <div class="form-inputs">
+        <div class="form_edit_profile"><%= f.input :email, required: true, autofocus: true %></div>
 
-  <h3>Cancel my account</h3>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <div class="form_edit_profile"><%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %></div>
+        <div class="form_edit_profile"><%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %></div>
+        <div class="form_edit_profile"><%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %></div>
+        <div class="form_edit_profile"><%= f.input :photo, as: :file %></div>
 
-  <%= link_to "Back", :back %>
+      </div>
+      <div class="form-actions"><p><%= f.button :submit, "Update" %></p></div>
+    <% end %>
+
+    <div class="form_edit_profile"><h3>Cancel my account</h3></div>
+
+    <div class="form_edit_profile"><p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p></div>
+
+    <div class="form_edit_profile"><%= link_to "Back", :back %></div>
 </div>

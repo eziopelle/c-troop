@@ -1,5 +1,36 @@
-.container {
-  align-items: center;
-  text-decoration-color: aqua;
-
+.container_edit {
+  background-color:#05162E;
+  padding: 20px;
+}
+.card_product_profile {
+  text-decoration-color: azure;
+  font-weight: bold;
+  background-color: #071B36;
+  display: flex;
+  justify-content: space-between;
+}
+.modif_edit_profile {
+  color: #FFFFFF;
+}
+.text_edit_profile {
+  color:#08D658;
+  text-align: center;
+}
+.h2_edit_profile {
+  color: #FFFFFF;
+}
+.h3_edit_profile {
+  color: #FFFFFF;
+}
+.p_edit_profile {
+  color: #BDBDBD;
+}
+.form_edit_profile {
+  color: #FFFFFF;
+}
+.edit_form {
+  background-size: cover;
+}
+.form-actions {
+  color: #FFFFFF;
 }
