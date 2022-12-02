@@ -16,10 +16,11 @@
       <% end %>
       <% if current_user %>
         <%= link_to edit_user_registration_path do %>
-        <%= cl_image_tag @current_user.photo.key, id:"icone-photo-profil" %>
+        <% if current_user.photo.key != nil %>
+         <%= cl_image_tag @current_user.photo.key, id:"icone-photo-profil" %>
+        <% end %>
       <% end %>
     <% end %>
-
     </div>
   </div>
 </div>
