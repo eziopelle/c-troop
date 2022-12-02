@@ -32,7 +32,7 @@ export default class extends Controller {
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "70px"
       customMarker.style.height = "50px"
-      const infos = "<div class='infos'><span>122€</span></div>"
+      const infos = `<div class='infos'><span class="${marker.color}">${marker.total_price}</span></div>`
 
       customMarker.insertAdjacentHTML("beforeend", infos)
 
