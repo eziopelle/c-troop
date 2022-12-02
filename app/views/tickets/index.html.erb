@@ -1,8 +1,3 @@
-<div class="container">
-  <h1>Tickets#index</h1>
-  <p>Find me in app/views/tickets/index.html.erb</p>
-
-  <% @tickets.each do |ticket|%>
-  <%= ticket.total_price.to_i %>
-  <% end %>
+<div class="mt-5" style="width: 100%; height: 100vh; margin: auto">
+  <%= cl_image_tag @tickets.last.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
