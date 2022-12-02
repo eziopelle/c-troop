@@ -1,0 +1,38 @@
+<div class="container all-dashboard">
+  <div class="mb-3 mt-3 dashbooard" data-controller="dashboard">
+    <h2>< Tableau de bord</h2>
+  </div>
+  <div class="show-cards" >
+    <div class="total-price">
+      <% @total_sum = 0 %>
+      <% Ticket.all.each do |total|  %>
+        <% @total_sum += total.total_price %>
+      <% end %>
+      <p class="total-sum-per-month">Mes dépenses de décembre :ㅤ</p><p class="total-sum-per-month"> <%= @total_sum %> €</p>
+    </div>
+    <div class="map-dashboard">
+      <div
+        style="height: 30vh; margin: auto"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+
+    </div>
+  </div>
+  <div class="price-dashboard">
+    <% Ticket.all.reverse.each do |last|  %>
+        <div class="container flexito each-last show-cards">
+          <div class="blockito">
+            <%= last.market.brand %>
+            <div class="blockito dashboard-created-at">
+              <%= last.created_at.strftime('Créé le : %d/%m/%Y')%>
+            </div>
+          </div>
+          <div class="last-total-price flexito">
+            <%= last.total_price %><form>€</form>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
