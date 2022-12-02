@@ -1,3 +1,5 @@
 <div class="mt-5" style="width: 100%; height: 100vh; margin: auto">
+  <% if @tickets.exists? %>
   <%= cl_image_tag @tickets.last.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 </div>
