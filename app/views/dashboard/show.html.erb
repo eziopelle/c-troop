@@ -23,7 +23,11 @@
     <% Ticket.all.reverse.each do |last|  %>
         <div class="container flexito each-last show-cards">
           <div class="blockito">
+            <% if last.market_id != nil %>
             <%= last.market.brand %>
+            <% else %>
+            <p>Supermarché non identifié </p>
+            <% end %>
             <div class="blockito dashboard-created-at">
             <%= last.created_at.strftime('Créé le : %d/%m/%Y')%>
             </div>
