@@ -27,63 +27,35 @@ price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 
 average = price_level.sum / price_level.size.to_f
 
 puts "========= CREATION DES MARKETS MANO ========="
-Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien 59000 - Lille", price_level: 258 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "5, Rue de Saint André 59000 - Lille", price_level: 263 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 - La Madeleine", price_level: 240 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Leclerc", address: "2, Place Louise de Bettignies 59000 - Lille", price_level: 228 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "9, Rue de Roubaix 59000 - Lille", price_level: 260 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "53, Rue Pierre Mauroy 59000 - Lille", price_level: 253 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "42, Rue Molinel 59000 - Lille", price_level: 228 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "6, Rue Palais Rihour 59000 - Lille", price_level: 255 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Intermarché Express", address: "89-95, Rue Nationale 59000 - Lille", price_level: 247 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "26, Boulevard de la Liberté - Lille", price_level: 248 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "33, Avenue JF Kennedy - La Madeleine", price_level: 258 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "43, Boulevard Vauban - Lille", price_level: 258 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "171, Rue Nationale - Lille", price_level: 238 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Leclerc", address: "107, Rue Solférino 59000 - Lille", price_level: 228 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Intermarché Express", address: "75-77, Rue Léon Gambetta - Lille", price_level: 250 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan ", address: "323, Rue du Président Hoover 59000 - Lille", price_level: 260 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Carrefour", address: "281, Rue Léon Gambetta - Lille", price_level: 281 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "14, Place Nouvelle Aventure - Lille", price_level: 237 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Auchan", address: "35, Rue d’Isly - Lille", price_level: 260 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle 59000 - Lille", price_level: 243 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix - Lille", price_level: 260 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "U Express", address: "51, Rue du Buisson 59000 - Lille", price_level: 268 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin 59000 - Lille", price_level: 232 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy - Lille", price_level: 226 / average, opening_hours: "pas d'horaires")
-Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives - Lille", price_level: 235 / average, opening_hours: "pas d'horaires")
-
-url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
-
-https = Net::HTTP.new(url.host, url.port)
-https.use_ssl = true
-
-request = Net::HTTP::Get.new(url)
-
-response = https.request(request)
-
-rep = JSON.parse(response.read_body)
-
-results = rep["results"]
-
-results.each do |result|
-  puts "========= MARKET LAT LNG NAME GOOGLE_ID ========="
-  sleep 2
-  lat = result["geometry"]["location"]['lat']
-  lng = result["geometry"]["location"]['lng']
-  name = result["name"]
-  google_id = result["place_id"]
-  #if name != "Garden &shop (anciennement le Minh)" || name != "Picard"
-    geo_localization = "#{lat},#{lng}"
-    location = Geocoder.search(geo_localization).first
-    address = "#{location.house_number} #{location.street} #{location.city}"
-    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address, opening_hours: "hello")
-  #end
-end
+Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien 59000 - Lille", price_level: 258 / average)
+Market.create!(brand: "Auchan", address: "5, Rue de Saint André 59000 - Lille", price_level: 263 / average)
+Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 - La Madeleine", price_level: 240 / average)
+Market.create!(brand: "Leclerc", address: "2, Place Louise de Bettignies 59000 - Lille", price_level: 228 / average)
+Market.create!(brand: "Auchan", address: "9, Rue de Roubaix 59000 - Lille", price_level: 260 / average)
+Market.create!(brand: "Auchan", address: "53, Rue Pierre Mauroy 59000 - Lille", price_level: 253 / average)
+Market.create!(brand: "Auchan", address: "42, Rue Molinel 59000 - Lille", price_level: 228 / average)
+Market.create!(brand: "Auchan", address: "6, Rue Palais Rihour 59000 - Lille", price_level: 255 / average)
+Market.create!(brand: "Intermarché Express", address: "89-95, Rue Nationale 59000 - Lille", price_level: 247 / average)
+Market.create!(brand: "Auchan", address: "26, Boulevard de la Liberté - Lille", price_level: 248 / average)
+Market.create!(brand: "Auchan", address: "33, Avenue JF Kennedy - La Madeleine", price_level: 258 / average)
+Market.create!(brand: "Auchan", address: "43, Boulevard Vauban - Lille", price_level: 258 / average)
+Market.create!(brand: "Auchan", address: "171, Rue Nationale - Lille", price_level: 238 / average)
+Market.create!(brand: "Leclerc", address: "107, Rue Solférino 59000 - Lille", price_level: 228 / average)
+Market.create!(brand: "Intermarché Express", address: "75-77, Rue Léon Gambetta - Lille", price_level: 250 / average)
+Market.create!(brand: "Auchan ", address: "323, Rue du Président Hoover 59000 - Lille", price_level: 260 / average)
+Market.create!(brand: "Carrefour", address: "281, Rue Léon Gambetta - Lille", price_level: 281 / average)
+Market.create!(brand: "Auchan", address: "14, Place Nouvelle Aventure - Lille", price_level: 237 / average)
+Market.create!(brand: "Auchan", address: "35, Rue d’Isly - Lille", price_level: 260 / average)
+Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle 59000 - Lille", price_level: 243 / average)
+Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix - Lille", price_level: 260 / average)
+Market.create!(brand: "U Express", address: "51, Rue du Buisson 59000 - Lille", price_level: 268 / average)
+Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin 59000 - Lille", price_level: 232 / average)
+Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy - Lille", price_level: 226 / average)
+Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives - Lille", price_level: 235 / average)
 
 Market.all.each do |market|
   puts "========= CHARGEMENT DES HORAIRES ========="
-  sleep 12
+  sleep 10
   url = URI("https://maps.googleapis.com/maps/api/place/details/json?fields=name%2Crating%2Cformatted_phone_number%2Copening_hours&place_id=#{market.google_id}&key=#{ENV['GOOGLE_API_KEY']}")
 
   https = Net::HTTP.new(url.host, url.port)
@@ -95,13 +67,8 @@ Market.all.each do |market|
 
   rep = JSON.parse(response.read_body)
 
-  if rep["opening_hours"] != nil || market.opening_hours == nil
-    opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
-    market.update(opening_hours: opening_hour)
-  else
-    market.update(opening_hours: "pas d'horaires")
-  end
-
+  opening_hour = rep["result"]["opening_hours"]["weekday_text"].join(" ")
+  market.update(opening_hours: opening_hour)
 end
 
 puts "========= GENERATION DES PRODUITS ========="
@@ -167,15 +134,9 @@ Product.create!(name: "Moutarde ancienne MAILLE", mean_price: "2.95")
 puts "========= AJOUT DES MARKET PRODUCTS ========="
 
 Market.all.each do |market|
-  random = [0.9, 1.10, 0.8, 1.20, 1.40, 0.7, 0.85, 0.90, 1.12, 1.30].sample
-  if market.price_level == nil
-    Product.all.each do |product|
-      MarketProduct.create!(product_id: product.id, market_id: market.id, price: product.mean_price * random)
-    end
-  else
-    Product.all.each do |product|
-      MarketProduct.create!(product_id: product.id, market_id: market.id, price: product.mean_price * market.price_level)
-    end
+  random = [0.9, 1.10, 0.8, 1.20, 1.40, 0.6, 0.85, 0.90, 1.12, 1.60].sample
+  Product.all.each do |product|
+    MarketProduct.create!(product_id: product.id, market_id: market.id, price: product.mean_price * random)
   end
 end
 

@@ -8,7 +8,7 @@
       <% Ticket.all.each do |total|  %>
         <% @total_sum += total.total_price %>
       <% end %>
-      <p class="total-sum-per-month">Mes dépenses de décembre :ㅤ</p><p class="total-sum-per-month"> <%= @total_sum %> €</p>
+      <p class="total-sum-per-month">Mes dépenses de décembre : </p><p class="total-sum-per-month"> <%= @total_sum %> €</p>
     </div>
     <div class="map-dashboard">
       <div
