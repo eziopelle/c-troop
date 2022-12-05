@@ -5,9 +5,6 @@ class Market < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  def horaires
-  end
-
   def total_price
     sum = 0
     market_products.each do |product|
