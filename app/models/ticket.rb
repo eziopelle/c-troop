@@ -35,6 +35,12 @@ class Ticket < ApplicationRecord
       puts "Pas de pertes, pas d'économies ce mois-ci"
     end
   end
+
+  def self.percent_economy
+    Market.all.each do |market|
+      @price = market.price_level
+    end
+  end
   #ligne 20 show dashboard
   # <p>Vous avez fait <%= Ticket.pourcent_economy %>% d'économie ce mois-ci</p>
 end

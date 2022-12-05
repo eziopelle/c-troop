@@ -4,8 +4,9 @@ $size-img: 90px;
 .navbar-lewagon {
   justify-content: space-between;
   background: $red;
-  position: sticky;
+  position: fixed;
   bottom: 0px;
+  width: 100%;
   z-index: 3;
   padding-top: 20px;
   padding-bottom: 20px;

@@ -8,7 +8,8 @@
       <% Ticket.all.each do |total|  %>
         <% @total_sum += total.total_price %>
       <% end %>
-      <p class="total-sum-per-month">Mes dépenses de décembre : </p><p class="total-sum-per-month"> <%= @total_sum %> €</p>
+      <div class="total-sum-per-month"><p>Mes dépenses du mois : </p></div>
+      <div class="total-sum-per-month-price"><p> <%= @total_sum.round(2) %> €</p></div>
     </div>
     <div class="map-dashboard">
       <div
@@ -18,6 +19,24 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+    <div class="economy-dashboard">
+      <% @total_product = 0 %>
+      <% @nb_product = 0 %>
+      <% Ticket.all.each do |total| %>
+        <% total.market.price_level  %>
+        <% @total_product += total.market.price_level - 1%>
+        <% @nb_product += 1  %>
+      <% end %>
+      <p>
+        <% if @total_product.negative? %>
+          <p>vous économisez <%=  (((@total_product) * 100)/@nb_product).round(0) %>% par rapport à la moyenne ce mois-ci</p>
+        <% elsif @total_product.positive?%>
+          <p>vous payez vos courses <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de plus que la moyenne ce mois-ci</p>
+        <% else %>
+          <p>Pas d'économies, pas de pertes ce mois-ci</p>
+        <% end %>
+      </p>
+      </div>
   </div>
   <div class="price-dashboard">
     <% Ticket.all.reverse.each do |last|  %>
