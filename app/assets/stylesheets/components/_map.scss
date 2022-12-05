@@ -6,16 +6,17 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  background-color: $blue;
+  background-color: $gray;
   color: white;
-  border-radius: 10px;
-  padding: 15px;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0.9;
 }
 
 .map-info {
   display: flex;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .map-info p {
@@ -35,4 +36,31 @@
 
 .mapboxgl-ctrl-geocoder--icon mapboxgl-ctrl-geocoder--icon-search {
   color: $red !important;
+}
+
+.div-carte {
+position: relative;
+}
+
+.list-locomotion {
+  position: absolute;
+  bottom: 80px;
+  right: 10px;
+
+  ul{
+    list-style-type:none;
+  }
+  li {
+    background-color: white;
+    padding:10px;
+    margin: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.selected {
+    background-color: #1E66C9 !important;
+    color: white;
 }
