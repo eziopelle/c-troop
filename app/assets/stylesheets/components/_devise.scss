@@ -3,32 +3,39 @@
   padding: 20px;
 }
 .modif_edit_profile {
-  color: #FFFFFF;
+  color: #b22d2d;
 }
 .text_edit_profile {
-  color:#08D658;
+  font-weight: bold;
+  color:#EE2446;
   text-align: center;
 }
 .h2_edit_profile {
+  font-weight: bold;
   color: #0c0101;
 }
 .h3_edit_profile {
+  font-weight: bold;
   color: #0c0101;
 }
 .p_edit_profile {
+  font-weight: bold;
   color: #0c0101;
 }
 .form_edit_profile {
+  font-weight: bold;
   color: #0c0101;
 }
 .edit_form {
   background-size: cover;
 }
 .form-actions {
+  font-weight: bold;
   color: #0c0101;
 }
 .card-product-profile {
   justify-content: space-between;
   display: flex;
-  border: solid green 2px;
+  background-color: rgb(229, 224, 216);
+  padding: 1ch;
 }
