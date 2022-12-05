@@ -11,13 +11,12 @@
       <div class="total-sum-per-month"><p>Mes dépenses du mois : </p></div>
       <div class="total-sum-per-month-price"><p> <%= @total_sum.round(2) %> €</p></div>
     </div>
-    <div class="map-dashboard">
-      <div
-        style="height: 30vh; margin: auto"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+    <div class="map-dashboard" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div style="height: 30vh; margin: auto"
+        data-map-target="map">
+    </div>
+
     </div>
     <div class="economy-dashboard">
       <% @total_product = 0 %>
