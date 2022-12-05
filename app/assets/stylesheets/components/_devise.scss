@@ -1,13 +1,6 @@
 .container_edit {
-  background-color:#05162E;
+  background-color:#FFFFFF;
   padding: 20px;
-}
-.card_product_profile {
-  text-decoration-color: azure;
-  font-weight: bold;
-  background-color: #071B36;
-  display: flex;
-  justify-content: space-between;
 }
 .modif_edit_profile {
   color: #FFFFFF;
@@ -17,20 +10,25 @@
   text-align: center;
 }
 .h2_edit_profile {
-  color: #FFFFFF;
+  color: #0c0101;
 }
 .h3_edit_profile {
-  color: #FFFFFF;
+  color: #0c0101;
 }
 .p_edit_profile {
-  color: #BDBDBD;
+  color: #0c0101;
 }
 .form_edit_profile {
-  color: #FFFFFF;
+  color: #0c0101;
 }
 .edit_form {
   background-size: cover;
 }
 .form-actions {
-  color: #FFFFFF;
+  color: #0c0101;
+}
+.card-product-profile {
+  justify-content: space-between;
+  display: flex;
+  border: solid green 2px;
 }

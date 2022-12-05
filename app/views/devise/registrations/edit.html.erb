@@ -1,14 +1,12 @@
 <div class="container_edit">
   <h1 class= "text_edit_profile"><%= "ProFile" %></h1>
-    <div class="card_product_profile jutstify-content-around">
-      <div class="flex">
-          <h2 class="h2_edit_profile"><%="Nom"%></h2>
-          <h3 class="h3_edit_profile"><%="Prénom"%></h3>
-          <p class="p_edit_profile"><%="Surnom"%></p>
-      </div>
-      <div class="flexbox">
-        <%= cl_image_tag @current_user.photo.key, class:"icone-gen w-25" %>
-      </div>
+    <div class="card-product-profile">
+        <div>
+            <h2 class="h2_edit_profile"><%="Nom"%></h2>
+            <h3 class="h3_edit_profile"><%="Prénom"%></h3>
+            <p class="p_edit_profile"><%="Surnom"%></p>
+        </div>
+        <%= cl_image_tag @current_user.photo.key, class:"avatar" %>
     </div>
     <div class="modif_edit_profile">
         <h4> Modifier <%= resource_name.to_s.humanize %></h4>

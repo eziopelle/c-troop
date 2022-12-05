@@ -6,13 +6,7 @@
       <%= link_to "/tickets/new" do %>
         <%= image_tag "logo.png", id:"icone-header" %>
       <% end %>
-      <% if current_user %>
-        <%= link_to edit_user_registration_path do %>
-        <% if current_user.photo.key != nil %>
-         <%= cl_image_tag @current_user.photo.key, id:"icone-photo-profil" %>
-        <% end %>
-      <% end %>
-    <% end %>
+      
     </div>
   </div>
 </div>
