@@ -3,12 +3,13 @@ $size-img: 70px;
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: $blue;
+  background: $red;
   position: sticky;
   bottom: 0px;
   z-index: 3;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-top: solid 1px gray;
   .details {
     height: 100%;
     width: 100%;
