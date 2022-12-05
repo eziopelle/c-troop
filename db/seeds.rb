@@ -18,13 +18,25 @@ User.destroy_all
 puts "========= DESTRUCTION DES USERS ========="
 
 puts "========= CREATION DES 4 USERS ========="
-User.create!(email: "victor@email.com", password: "victor1234")
-User.create!(email: "mario@email.com", password: "mario1234")
-User.create!(email: "alassane@email.com", password: "alassane1234")
-User.create!(email: "maxence@email.com", password: "maxence1234")
-
+user_1 = User.create!(email: "victor@email.com", password: "victor1234")
+file =  URI.open("https://ca.slack-edge.com/T02NE0241-U045E6YAM2T-182bcc445d87-512")
+user_1.photo.attach(io: file, filename: "avatar-victor.png", content_type: "image/png")
+user_1.save
+user_2 = User.create!(email: "mario@email.com", password: "mario1234")
+file =  URI.open("https://ca.slack-edge.com/T02NE0241-U046HLA718Q-6b693044323c-512")
+user_2.photo.attach(io: file, filename: "avatar-mario.png", content_type: "image/png")
+user_2.save
+user_3 = User.create!(email: "alassane@email.com", password: "alassane1234")
+file =  URI.open("https://ca.slack-edge.com/T02NE0241-U046K6FQVUG-92244e9429cd-512")
+user_3.photo.attach(io: file, filename: "avatar-alassane.png", content_type: "image/png")
+user_3.save
+user_4 = User.create!(email: "maxence@email.com", password: "maxence1234")
+file =  URI.open("https://ca.slack-edge.com/T02NE0241-U045WD5DGG4-120949574827-512")
+user_4.photo.attach(io: file, filename: "avatar-maxence.png", content_type: "image/png")
+user_4.save
 price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 281, 237, 260, 243, 260, 268, 232, 226, 235]
 average = price_level.sum / price_level.size.to_f
+
 
 puts "========= CREATION DES MARKETS MANO ========="
 Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien 59000 - Lille", price_level: 258 / average, opening_hours: "pas d'horaires")
