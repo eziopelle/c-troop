@@ -15,4 +15,5 @@ class Market < ApplicationRecord
     end
     sum
   end
+
 end
