@@ -4,11 +4,13 @@
   span {
     position: absolute;
     bottom: 0;
-    left: 10px;
+    left: 15px;
     padding-left:5px;
     padding-right:5px;
     border-radius: 5px;
     color: white;
+    font-family: montserrat;
+    font-weight: bold;
   }
   .green {
     background-color: $green;
