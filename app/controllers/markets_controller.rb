@@ -12,7 +12,8 @@ class MarketsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { market: market }),
         image_url: helpers.asset_url(image),
         total_price: market.total_price.round(2),
-        color: color
+        color: color,
+        pourcentage: ((market.price_level * 100) - 100).round(2)
       }
     end
   end

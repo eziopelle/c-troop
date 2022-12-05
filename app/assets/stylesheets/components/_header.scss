@@ -1,0 +1,39 @@
+$size-img: 70px;
+
+
+.header-lewagon {
+  justify-content: space-between;
+  background: $red;
+  position: sticky;
+  top: 0px;
+  z-index: 3;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top: solid 1px gray;
+  .details-header {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+    #icone-header {
+      position: absolute;
+      left: 8px;
+      top: 8px;
+    }
+
+  }
+}
+
+.header-lewagon .header-collapse {
+  flex-grow: 0;
+}
+
+.header-lewagon img {
+  width: 80px;
+}
+
+img#icone-header {
+  width: $size-img;
+}

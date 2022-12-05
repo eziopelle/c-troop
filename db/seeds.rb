@@ -77,7 +77,7 @@ results.each do |result|
     geo_localization = "#{lat},#{lng}"
     location = Geocoder.search(geo_localization).first
     address = "#{location.house_number} #{location.street} #{location.city}"
-    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address, opening_hours: "hello")
+    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address)
   #end
 end
 
@@ -170,7 +170,9 @@ Market.all.each do |market|
   random = [0.9, 1.10, 0.8, 1.20, 1.40, 0.7, 0.85, 0.90, 1.12, 1.30].sample
   if market.price_level == nil
     Product.all.each do |product|
-      MarketProduct.create!(product_id: product.id, market_id: market.id, price: product.mean_price * random)
+      random_price_level = random
+      MarketProduct.create!(product_id: product.id, market_id: market.id, price: product.mean_price * random_price_level)
+      market.update(price_level: random_price_level)
     end
   else
     Product.all.each do |product|

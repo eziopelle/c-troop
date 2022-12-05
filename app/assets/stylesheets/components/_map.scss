@@ -22,3 +22,17 @@
   margin-left: 10px;
 
 }
+
+.mapboxgl-ctrl-top-right {
+  margin-left: 120px;
+  margin-top: 8px;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  background-color: white;
+  border-radius: 40px;
+}
+
+.mapboxgl-ctrl-geocoder--icon mapboxgl-ctrl-geocoder--icon-search {
+  color: $red !important;
+}
