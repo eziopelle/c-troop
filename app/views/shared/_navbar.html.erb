@@ -14,13 +14,13 @@
       <%= link_to "/tickets/new" do %>
         <%= image_tag "icone-photo.png", id:"icone-photo" %>
       <% end %>
-      <% if current_user %>
+      <% if @current_user %>
         <%= link_to edit_user_registration_path do %>
-        <% if current_user.photo.key != nil %>
+         <% if @current_user.photo.key != nil %>
          <%= cl_image_tag @current_user.photo.key, id:"icone-photo-profil" %>
         <% end %>
+       <% end %>
       <% end %>
-    <% end %>
     </div>
   </div>
 </div>
