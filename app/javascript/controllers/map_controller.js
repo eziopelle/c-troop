@@ -44,8 +44,8 @@ export default class extends Controller {
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "35px"
-      customMarker.style.height = "25px"
+      customMarker.style.width = "45,5px"
+      customMarker.style.height = "32,5px"
       // customMarker.dataset.action = "click->map#direction"
       // customMarker.dataset.lat = marker.lat
       // customMarker.dataset.lng = marker.lng
@@ -67,7 +67,11 @@ export default class extends Controller {
     document.querySelector('.selected').classList.remove('selected')
     event.currentTarget.classList.add('selected')
     this.transport = event.currentTarget.dataset.target
+    }
   }
+
+
+
 
   // User marker
   direction(event) {
@@ -75,6 +79,7 @@ export default class extends Controller {
     console.log(event.currentTarget)
     const markerlat = event.currentTarget.dataset.lat
     const markerlng = event.currentTarget.dataset.lng
+    this.directionok = true
 
     fetch(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`,
       { method: 'GET' }
