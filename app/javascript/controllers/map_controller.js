@@ -3,7 +3,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
 
-  static targets = [ "map"]
+  static targets = ["map"]
 
   static values = {
     apiKey: String,
@@ -21,14 +21,10 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
       style: 'mapbox://styles/eziopelle97/clb9esa0t002014n0wfp7olit',
-
-
     })
 
     this.addMarkersToMap();
     // this.fitMapToMarkers();
-
-
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }))
@@ -39,18 +35,19 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
 
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-
+      // console.log(this.duration )
       const customMarker = document.createElement("div")
+
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "45,5px"
-      customMarker.style.height = "32,5px"
+      customMarker.style.width = "85px"
+      customMarker.style.height = "33px"
       // customMarker.dataset.action = "click->map#direction"
       // customMarker.dataset.lat = marker.lat
       // customMarker.dataset.lng = marker.lng
 
-      const infos = `<div class='infos'><span class="${marker.color}">${marker.pourcentage} %</span></div>`
+      const infos = `<div class='infos' data-action="click->map#duration"><span class="${marker.color}">${marker.pourcentage} %</span></div>`
 
       customMarker.insertAdjacentHTML("beforeend", infos)
 
@@ -59,35 +56,49 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
+
     })
+  }
+
+  duration(event) {
+    fetch(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`,
+    { method: 'GET' }
+  )
+  .then(response => response.json())
+  .then(data => {
+    this.duration = data.routes[0].duration;
+  })
+    const popupWindow = document.createElement("div")
+
+    const duration = `<div><a class="btn btn-flat">${this.duration}</a></div>`
+    console.log(duration)
+    popupWindow.insertAdjacentHTML("beforeend", duration)
+
   }
 
   chooseTransportationMode(event) {
     event.preventDefault();
-    document.querySelector('.selected').classList.remove('selected')
-    event.currentTarget.classList.add('selected')
-    this.transport = event.currentTarget.dataset.target
-    }
+    document.querySelector('.selected').classList.remove('selected');
+    event.currentTarget.classList.add('selected');
+    this.transport = event.currentTarget.dataset.target;
   }
-
 
 
 
   // User marker
   direction(event) {
 
-    console.log(event.currentTarget)
+    // console.log(event.currentTarget);
     const markerlat = event.currentTarget.dataset.lat
     const markerlng = event.currentTarget.dataset.lng
-    this.directionok = true
 
     fetch(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`,
       { method: 'GET' }
     )
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       const route = data.routes[0].geometry.coordinates;
+      this.duration = data.routes[0].duration;
       this.drawroute(route)
     })
   }
@@ -154,7 +165,7 @@ export default class extends Controller {
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([this.userLong, this.userLat ])
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 1000 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
 
