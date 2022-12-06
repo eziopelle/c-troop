@@ -64,6 +64,8 @@ Market.create!(brand: "U Express", address: "51, Rue du Buisson 59000 - Lille", 
 Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin 59000 - Lille", price_level: 232 / average, opening_hours: "pas d'horaires")
 Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy - Lille", price_level: 226 / average, opening_hours: "pas d'horaires")
 Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives - Lille", price_level: 235 / average, opening_hours: "pas d'horaires")
+Market.create!(brand: "Carrefour Market", address: "Lille Gambetta", price_level: 5.49 / average, opening_hours: "pas d'horaires")
+
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
