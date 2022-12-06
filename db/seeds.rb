@@ -39,31 +39,31 @@ average = price_level.sum / price_level.size.to_f
 
 
 puts "========= CREATION DES MARKETS MANO ========="
-Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 20 56 89 38")
-Market.create!(brand: "Auchan", address: "5, Rue de Saint André Lille", price_level: 263 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 23")
-Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 La Madeleine", price_level: 240 / average, opening_hours: "pas d'horaires", phone_number: "03 20 31 69 64")
-Market.create!(brand: "Leclerc", address: "2, Place Louise de Bettignies Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "09 67 35 15 02")
-Market.create!(brand: "Auchan", address: "9, Rue de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 59 30 59 30")
-Market.create!(brand: "Auchan", address: "53, Rue Pierre Mauroy Lille", price_level: 253 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 07 63")
-Market.create!(brand: "Auchan", address: "42, Rue Molinel Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "09 62 61 49 20")
-Market.create!(brand: "Auchan", address: "6, Rue Palais Rihour Lille", price_level: 255 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 09 83")
-Market.create!(brand: "Intermarché Express", address: "89-95, Rue Nationale Lille", price_level: 247 / average, opening_hours: "pas d'horaires", phone_number: "03 28 38 14 30")
-Market.create!(brand: "Auchan", address: "26, Boulevard de la Liberté Lille", price_level: 248 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 21")
-Market.create!(brand: "Auchan", address: "33, Avenue JF Kennedy La Madeleine", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 09 89")
-Market.create!(brand: "Auchan", address: "43, Boulevard Vauban Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 08 45")
-Market.create!(brand: "Auchan", address: "171, Rue Nationale Lille", price_level: 238 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 06 75")
-Market.create!(brand: "Leclerc", address: "107, Rue Solférino Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "03 20 46 36 09")
-Market.create!(brand: "Intermarché Express", address: "75-77, Rue Léon Gambetta Lille", price_level: 250 / average, opening_hours: "pas d'horaires", phone_number: "03 28 05 19 05")
-Market.create!(brand: "Auchan ", address: "323, Rue du Président Hoover Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 87")
-Market.create!(brand: "Carrefour", address: "281, Rue Léon Gambetta Lille", price_level: 281 / average, opening_hours: "pas d'horaires", phone_number: "03 20 14 79 00")
-Market.create!(brand: "Auchan", address: "14, Place Nouvelle Aventure Lille", price_level: 237 / average, opening_hours: "pas d'horaires", phone_number: "03 20 38 83 80")
-Market.create!(brand: "Auchan", address: "35, Rue d’Isly Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 85")
-Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle Lille", price_level: 243 / average, opening_hours: "pas d'horaires", phone_number: "03 20 09 02 02")
-Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 20 70 66 00")
-Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_level: 268 / average, opening_hours: "pas d'horaires", phone_number: "03 20 55 25 93")
-Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin Lille", price_level: 232 / average, opening_hours: "pas d'horaires", phone_number: "03 20 33 22 22")
-Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "03 20 61 76 17")
-Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "09 80 98 09 86")
+Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 20 56 89 38", ping_gris: false)
+Market.create!(brand: "Auchan", address: "5, Rue de Saint André Lille", price_level: 263 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 23", ping_gris: false)
+Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 La Madeleine", price_level: 240 / average, opening_hours: "pas d'horaires", phone_number: "03 20 31 69 64", ping_gris: false)
+Market.create!(brand: "Leclerc", address: "2, Place Louise de Bettignies Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "09 67 35 15 02", ping_gris: false)
+Market.create!(brand: "Auchan", address: "9, Rue de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 59 30 59 30", ping_gris: false)
+Market.create!(brand: "Auchan", address: "53, Rue Pierre Mauroy Lille", price_level: 253 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 07 63", ping_gris: false)
+Market.create!(brand: "Auchan", address: "42, Rue Molinel Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "09 62 61 49 20", ping_gris: false)
+Market.create!(brand: "Auchan", address: "6, Rue Palais Rihour Lille", price_level: 255 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 09 83", ping_gris: false)
+Market.create!(brand: "Intermarché Express", address: "89-95, Rue Nationale Lille", price_level: 247 / average, opening_hours: "pas d'horaires", phone_number: "03 28 38 14 30", ping_gris: false)
+Market.create!(brand: "Auchan", address: "26, Boulevard de la Liberté Lille", price_level: 248 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 21", ping_gris: false)
+Market.create!(brand: "Auchan", address: "33, Avenue JF Kennedy La Madeleine", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 09 89", ping_gris: false)
+Market.create!(brand: "Auchan", address: "43, Boulevard Vauban Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 08 45", ping_gris: false)
+Market.create!(brand: "Auchan", address: "171, Rue Nationale Lille", price_level: 238 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 06 75", ping_gris: false)
+Market.create!(brand: "Leclerc", address: "107, Rue Solférino Lille", price_level: 228 / average, opening_hours: "pas d'horaires", phone_number: "03 20 46 36 09", ping_gris: false)
+Market.create!(brand: "Intermarché Express", address: "75-77, Rue Léon Gambetta Lille", price_level: 250 / average, opening_hours: "pas d'horaires", phone_number: "03 28 05 19 05", ping_gris: false)
+Market.create!(brand: "Auchan ", address: "323, Rue du Président Hoover Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 87", ping_gris: false)
+Market.create!(brand: "Carrefour", address: "281, Rue Léon Gambetta Lille", price_level: 281 / average, opening_hours: "pas d'horaires", phone_number: "03 20 14 79 00", ping_gris: false)
+Market.create!(brand: "Auchan", address: "14, Place Nouvelle Aventure Lille", price_level: 237 / average, opening_hours: "pas d'horaires", phone_number: "03 20 38 83 80", ping_gris: false)
+Market.create!(brand: "Auchan", address: "35, Rue d’Isly Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 66 19 10 85", ping_gris: false)
+Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle Lille", price_level: 243 / average, opening_hours: "pas d'horaires", phone_number: "03 20 09 02 02", ping_gris: false)
+Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 20 70 66 00", ping_gris: false)
+Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_level: 268 / average, opening_hours: "pas d'horaires", phone_number: "03 20 55 25 93", ping_gris: false)
+Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin Lille", price_level: 232 / average, opening_hours: "pas d'horaires", phone_number: "03 20 33 22 22", ping_gris: false)
+Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "03 20 61 76 17", ping_gris: false)
+Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "09 80 98 09 86", ping_gris: false)
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
@@ -89,7 +89,7 @@ results.each do |result|
     geo_localization = "#{lat},#{lng}"
     location = Geocoder.search(geo_localization).first
     address = "#{location.house_number} #{location.street} #{location.city}"
-    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address)
+    Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address, ping_gris: true)
   #end
 end
 
@@ -187,7 +187,7 @@ Product.create!(name: "Moutarde ancienne MAILLE", mean_price: "2.95")
 puts "========= AJOUT DES MARKET PRODUCTS ========="
 
 Market.all.each do |market|
-  random = [0.9, 1.10, 0.8, 1.20, 1.40, 0.7, 0.85, 0.90, 1.12, 1.30].sample
+  random = [0.92, 1.12, 0.98, 1.14, 1.20, 0.89, 0.95, 1.15, 1.12, 1.1].sample
   if market.price_level == nil
     Product.all.each do |product|
       random_price_level = random
