@@ -45,7 +45,7 @@ export default class extends Controller {
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
       customMarker.style.width = "35px"
-      customMarker.style.height = "15px"
+      customMarker.style.height = "25px"
       // customMarker.dataset.action = "click->map#direction"
       // customMarker.dataset.lat = marker.lat
       // customMarker.dataset.lng = marker.lng
