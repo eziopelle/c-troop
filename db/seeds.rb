@@ -39,6 +39,7 @@ average = price_level.sum / price_level.size.to_f
 
 
 puts "========= CREATION DES MARKETS MANO ========="
+
 Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
 Market.create!(brand: "Auchan", address: "5, Rue de Saint André Lille", price_level: 263 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
 Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 La Madeleine", price_level: 240 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
@@ -64,6 +65,7 @@ Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_le
 Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin Lille", price_level: 232 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
 Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
 Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "pas de numéro")
+
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
