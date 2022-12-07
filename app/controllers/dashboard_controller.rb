@@ -3,14 +3,12 @@ class DashboardController < ApplicationController
 
   def show
     @markets = policy_scope(Market)
-    @markets = current_user.markets
-    average = MarketProduct.average_price
     # Marker pour géocoder (vic)
     @markers = @markets.geocoded.map do |market|
       if market.ping_gris == true
         image = "ping-gris.svg"
         color = "gray"
-      elsif market.total_price < average
+      elsif market.total_price < MarketProduct.average_price
         image = "ping-vert.svg"
         color = "green"
       else
