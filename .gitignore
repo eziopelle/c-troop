@@ -41,3 +41,5 @@
 *.swp
 .DS_Store
 .env*
+# google credentials
+/config/silent-bird-370111-1ee64a6bf5fc.json
