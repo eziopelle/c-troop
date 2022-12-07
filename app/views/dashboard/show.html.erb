@@ -12,9 +12,11 @@
     <div class="flexito dashboard-right">
       <div class="total-price blockito depense-month">
         <% @total_sum = 0 %>
-        <% Ticket.all.each do |total|  %>
-          <% @total_sum += total.total_price %>
+      <% if Ticket.all != nil %>
+        <% Ticket.all.each do |total| %>
+          <% @total_sum += total.total_price unless total.total_price == nil %>
         <% end %>
+      <% end %>
         <div class="total-sum-per-month"><p>Décembre 2022</p></div>
         <div class="total-sum-per-month-price">
           <div class="logo-c">
@@ -30,10 +32,12 @@
         <div>
           <% @total_product = 0 %>
           <% @nb_product = 0 %>
-          <% Ticket.all.each do |total| %>
-            <% total.market.price_level  %>
-            <% @total_product += total.market.price_level - 1%>
-            <% @nb_product += 1  %>
+          <% if Ticket.all != nil %>
+            <% Ticket.all.each do |total| %>
+              <% total.market.price_level unless total.market == nil %>
+              <% @total_product += total.market.price_level - 1 unless total.market == nil %>
+              <% @nb_product += 1  %>
+            <% end %>
           <% end %>
           <p>
             <% if @total_product.negative? %>
@@ -74,7 +78,11 @@
             </div>
             <div class="blockito">
               <div class="dashboard-adress-market">
-                <%= last.market.address %>
+                <% if last.market_id != nil %>
+                <p><%= last.market.address %></p>
+              <% else %>
+                <p>Adresse non identifiée</p>
+              <% end %>
               </div>
               <div class="dashboard-created-at">
                 <%= last.created_at.strftime('Créé le : %d/%m/%Y')%>

@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
     @markets = current_user.markets
 
     @markers = @markets.geocoded.map do |market|
-      image = market.total_price < MarketProduct.average_price ? "ping-vert.png" : "ping-rouge.png"
+      image = market.total_price < MarketProduct.average_price ? "ping-vert.svg" : "ping-rouge.svg"
       color = market.total_price < MarketProduct.average_price ? "green" : "red"
       {
         lat: market.latitude,
