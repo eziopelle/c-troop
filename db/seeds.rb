@@ -109,12 +109,11 @@ Market.all.each do |market|
 
   rep = JSON.parse(response.read_body)
 
-puts "========= CHARGEMENT DES PHONE NUMBER ========="
+puts "========= CHARGEMENT DES PHONES GOOGLE (sans espace :P vic ) ========="
   if rep["formatted_phone_number"] != nil || market.phone_number == nil
     formatted_phone_number = rep["result"]["formatted_phone_number"]
-    market.update(phone_number: formatted_phone_number)
-  else
-    market.update(phone_number: "pas de numéro")
+    num_whithout_spaces = formatted_phone_number.gsub(/\s+/, "")
+    market.update(phone_number: num_whithout_spaces)
   end
 
   puts "========= CHARGEMENT DES HORAIRES ========="
