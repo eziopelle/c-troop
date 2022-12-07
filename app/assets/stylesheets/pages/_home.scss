@@ -1,19 +1,25 @@
 // Specific CSS for your home-page
 .home-gif {
-  position: absolute;
+margin: auto;
+width: 390px;
+position: relative;
   a {
-    position: relative;
-    bottom:270px;
-    left: 110px;
+    position: absolute;
+    top: 75%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   }
   img {
+
     width: 390px;
     height: 844px;
   }
 }
 
-.tuto img {
+.tuto {
+  margin: auto;
   width: 390px;
-  height: 844px;
-
+  img {
+    width: 390px;
+    height: 844px;
+  }
 }
