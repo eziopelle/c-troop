@@ -39,6 +39,7 @@ average = price_level.sum / price_level.size.to_f
 
 
 puts "========= CREATION DES MARKETS MANO ========="
+
 Market.create!(brand: "Auchan", address: "48, Bis Rue Saint Sébastien Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "0320568938", ping_gris: false)
 Market.create!(brand: "Auchan", address: "5, Rue de Saint André Lille", price_level: 263 / average, opening_hours: "pas d'horaires", phone_number: "0366191023", ping_gris: false)
 Market.create!(brand: "Carrefour Market", address: "Rue du Pré Catelan 59110 La Madeleine", price_level: 240 / average, opening_hours: "pas d'horaires", phone_number: "0320316964", ping_gris: false)
@@ -61,7 +62,6 @@ Market.create!(brand: "Auchan", address: "35, Rue d’Isly Lille", price_level: 
 Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle Lille", price_level: 243 / average, opening_hours: "pas d'horaires", phone_number: "0320090202", ping_gris: false)
 Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "0320706600", ping_gris: false)
 Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_level: 268 / average, opening_hours: "pas d'horaires", phone_number: "0320552593", ping_gris: false)
-Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin Lille", price_level: 232 / average, opening_hours: "pas d'horaires", phone_number: "0320332222", ping_gris: false)
 Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "0320617617", ping_gris: false)
 Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "0980980986", ping_gris: false)
 

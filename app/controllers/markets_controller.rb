@@ -1,13 +1,13 @@
 class MarketsController < ApplicationController
   def index
     @markets = policy_scope(Market)
-
+    average = MarketProduct.average_price
     # Marker pour géocoder (vic)
     @markers = @markets.geocoded.map do |market|
       if market.ping_gris == true
         image = "ping-gris.svg"
         color = "gray"
-      elsif market.total_price < MarketProduct.average_price
+      elsif market.total_price < average
         image = "ping-vert.svg"
         color = "green"
       else
