@@ -10,6 +10,8 @@ require 'open-uri'
 require "uri"
 require "net/http"
 
+Ticket.destroy_all
+puts "========= DESTRUCTION DES TICKETS ========="
 Market.destroy_all
 puts "========= DESTRUCTION DES MARKETS ========="
 Product.destroy_all
@@ -19,22 +21,22 @@ puts "========= DESTRUCTION DES USERS ========="
 
 puts "========= CREATION DES 4 USERS ========="
 user_1 = User.create!(email: "victor@email.com", password: "victor1234")
-file =  URI.open("file:///C:/Users/alass/Downloads/avatar-victor-min.png")
+file =  URI.open("app/assets/images/avatar-victor-min.png")
 user_1.photo.attach(io: file, filename: "avatar-victor.png", content_type: "image/png")
 user_1.save
 user_2 = User.create!(email: "mario@email.com", password: "mario1234")
-file =  URI.open("file:///C:/Users/alass/Downloads/avatar_mario-min.png")
+file =  URI.open("app/assets/images/avatar_mario-min.png")
 user_2.photo.attach(io: file, filename: "avatar-mario.png", content_type: "image/png")
 user_2.save
 user_3 = User.create!(email: "alassane@email.com", password: "alassane1234")
-file =  URI.open("file:///C:/Users/alass/Downloads/avatar-alassane-min.png")
+file =  URI.open("app/assets/images/avatar-alassane.png")
 user_3.photo.attach(io: file, filename: "avatar-alassane.png", content_type: "image/png")
 user_3.save
 user_4 = User.create!(email: "maxence@email.com", password: "maxence1234")
-file =  URI.open("file:///C:/Users/alass/Downloads/avatar-maxence-min.png")
+file =  URI.open("app/assets/images/avatar-maxence-min.png")
 user_4.photo.attach(io: file, filename: "avatar-maxence.png", content_type: "image/png")
 user_4.save
-price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 281, 237, 260, 243, 260, 268, 232, 226, 235]
+price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 281, 237, 260, 243, 260, 268, 226, 235, 258]
 average = price_level.sum / price_level.size.to_f
 
 
@@ -64,6 +66,7 @@ Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de 
 Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_level: 268 / average, opening_hours: "pas d'horaires", phone_number: "0320552593", ping_gris: false)
 Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "0320617617", ping_gris: false)
 Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "0980980986", ping_gris: false)
+Market.create!(brand: "Auchan", address: "237, All. Clémentine Deman Lille", price_level: 258 / average, opening_hours: "pas d'horaires", phone_number: "0366191294", ping_gris: false)
 
 url = URI("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.630,3.060&radius=2500&type=supermarket&key=#{ENV['GOOGLE_API_KEY']}")
 
