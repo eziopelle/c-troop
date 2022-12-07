@@ -1,16 +1,17 @@
 
 <div class="div-carte" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-user-marker-value="<%=@user_marker%>">
   <div style="width: 100%; height: 100vh; margin: auto"
     data-map-target="map"
     >
   </div>
+  <%# <div id="instructions"></div> %>
 
   <div class="list-locomotion">
     <ul>
       <li data-target="cycling" data-action="click->map#chooseTransportationMode"><i class="fa-solid fa-bicycle"></i></li>
       <li data-target="driving" data-action="click->map#chooseTransportationMode"><i class="fa-solid fa-car"></i></li>
-      <li class="selected" data-target="walking " data-action="click->map#chooseTransportationMode"><i class="fa-solid fa-person-walking"></i></li>
+      <li class="selected" data-target="walking " data-action="click->map#chooseTransportationMode "><i class="fa-solid fa-person-walking"></i></li>
     </ul>
   </div>
 </div>

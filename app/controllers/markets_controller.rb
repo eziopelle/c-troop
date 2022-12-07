@@ -4,7 +4,7 @@ class MarketsController < ApplicationController
 
     # Marker pour géocoder (vic)
     @markers = @markets.geocoded.map do |market|
-      image = market.total_price < MarketProduct.average_price ? "ping-vert.png" : "ping-rouge.png"
+      image = market.total_price < MarketProduct.average_price ? "ping-vert.svg" : "ping-rouge.svg"
       color = market.total_price < MarketProduct.average_price ? "green" : "red"
       {
         lat: market.latitude,
@@ -16,6 +16,7 @@ class MarketsController < ApplicationController
         pourcentage: ((market.price_level * 100) - 100).round(2)
       }
     end
+    @user_marker = helpers.asset_url("ping.png")
   end
   #TODO : Définir la show de market
 end

@@ -3,21 +3,16 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
 
-
-  static targets = [ "map"]
-
+  static targets = ["map"]
 
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    userMarker: String
   }
 
 
-
   connect() {
-
-
-
 
     this.transport = "walking"
     this.geolocation();
@@ -25,37 +20,34 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: 'mapbox://styles/eziopelle97/clb9esa0t002014n0wfp7olit'
+      style: 'mapbox://styles/eziopelle97/clb9esa0t002014n0wfp7olit',
     })
 
     this.addMarkersToMap();
-    this.fitMapToMarkers();
-
+    // this.fitMapToMarkers();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    mapboxgl: mapboxgl }))
 
   }
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
 
-
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-
-
-
+      // console.log(this.duration )
       const customMarker = document.createElement("div")
+
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
       customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "91px"
-      customMarker.style.height = "65px"
+      customMarker.style.width = "85px"
+      customMarker.style.height = "33px"
       // customMarker.dataset.action = "click->map#direction"
       // customMarker.dataset.lat = marker.lat
       // customMarker.dataset.lng = marker.lng
 
-      const infos = `<div class='infos'><span class="${marker.color}">${marker.pourcentage} %</span></div>`
+      const infos = `<div class='infos' data-action="click->map#duration"><span class="${marker.color}">${marker.pourcentage} %</span></div>`
 
       customMarker.insertAdjacentHTML("beforeend", infos)
 
@@ -66,59 +58,49 @@ export default class extends Controller {
         .addTo(this.map)
 
     })
+  }
 
-    // const customLocomotion = document.createElement("div")
-    // customLocation.className = "location"
-    // customLocation.style.backgroundSize = "contain"
-    // customLocation.style.width = "91px"
-    // customLocation.style.height = "65px"
-//
-    // const locomotionInfo = `<div>
-    // <ul class="list-locomotion">
-      // <li><i class="fa-solid fa-bicycle"></i></li>
-      // <li><i class="fa-solid fa-car"></i></li>
-      // <li><i class="fa-solid fa-person-walking"></i></li>
-    // </ul>
-  // </div>`
-//
-    // customLocation.insertAdjacentHTML("beforeend", locomotionInfo)
-//
-    // new mapboxgl.customLocation(customMarker)
+  duration(event) {
+    fetch(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`,
+    { method: 'GET' }
+  )
+  .then(response => response.json())
+  .then(data => {
+    this.duration = data.routes[0].duration;
+  })
+    const popupWindow = document.createElement("div")
+
+    const duration = `<div><a class="btn btn-flat">${this.duration}</a></div>`
+    console.log(duration)
+    popupWindow.insertAdjacentHTML("beforeend", duration)
 
   }
 
   chooseTransportationMode(event) {
     event.preventDefault();
-
-    document.querySelector('.selected').classList.remove('selected')
-
-    event.currentTarget.classList.add('selected')
-
-    this.transport = event.currentTarget.dataset.target
-
+    document.querySelector('.selected').classList.remove('selected');
+    event.currentTarget.classList.add('selected');
+    this.transport = event.currentTarget.dataset.target;
   }
-    // User marker
+
+
+
+  // User marker
   direction(event) {
 
-    console.log(event.currentTarget)
+    // console.log(event.currentTarget);
     const markerlat = event.currentTarget.dataset.lat
     const markerlng = event.currentTarget.dataset.lng
-
-    console.log(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`)
-    console.log(markerlng)
-    console.log(markerlat)
 
     fetch(`https://api.mapbox.com/directions/v5/mapbox/${this.transport}/${this.userLong},${this.userLat};${markerlng},${markerlat}?steps=true&geometries=geojson&access_token=${this.apiKeyValue}`,
       { method: 'GET' }
     )
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       const route = data.routes[0].geometry.coordinates;
+      this.duration = data.routes[0].duration;
       this.drawroute(route)
-
     })
-
   }
 
   drawroute(route) {
@@ -154,18 +136,35 @@ export default class extends Controller {
       });
     }
     // add turn instructions here at the end
+    // get the sidebar and add the instructions
+    // const instructions = document.getElementById('instructions');
+    // const steps = data.legs[0].steps;
+
+    // let tripInstructions = '';
+    // for (const step of steps) {
+    //   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+    // }
+    // instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+    //   data.duration / 60
+    // )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
   }
 
-
   addUserMarkerToMap(userLat, userLong) {
-    new mapboxgl.Marker()
+
+    const pingMarker = document.createElement("div")
+    pingMarker.className = "marker"
+    pingMarker.style.backgroundImage = `url('${this.userMarkerValue}')`
+    pingMarker.style.backgroundSize = "contain"
+    pingMarker.style.width = "30px"
+    pingMarker.style.height = "30px"
+    new mapboxgl.Marker(pingMarker)
     .setLngLat([ userLong, userLat ])
     .addTo(this.map)
   }
 
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    bounds.extend([this.userLong, this.userLat ])
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
@@ -182,6 +181,9 @@ export default class extends Controller {
     this.userLat = crd.latitude;
     this.userLong = crd.longitude;
     this.addUserMarkerToMap(this.userLat, this.userLong);
+
+
+    this.fitMapToMarkers();
   }
 
   #error(err) {
@@ -195,15 +197,6 @@ export default class extends Controller {
       maximumAge: 0
     };
     navigator.geolocation.getCurrentPosition(this.success.bind(this), this.#error, this.options);
-
   }
-
-
-
-
-
-
-
-
 
 }
