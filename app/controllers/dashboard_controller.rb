@@ -3,6 +3,9 @@ class DashboardController < ApplicationController
 
   def show
     @markets = policy_scope(Market)
+    @markets = current_user.markets
+    @nb_markets = current_user.markets.count
+
     @markers = @markets.geocoded.map do |market|
       if market.ping_gris == true
         image = "ping-gris.svg"

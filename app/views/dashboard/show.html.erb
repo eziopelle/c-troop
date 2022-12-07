@@ -52,12 +52,12 @@
           <% @total_markets = 0 %>
           <% Ticket.all.each do |total|%>
             <% if total.market_id != nil %>
-              <% @total_markets += total.market_id  %>
+              <% @total_markets += 1  %>
             <% else %>
               <% @total_markets += 0 %>
             <% end %>
           <% end %>
-          <p><%= @total_markets %> supermarchés visités</p>
+          <p><%= @nb_markets %> supermarchés visités</p>
         </div>
       </div>
     </div>
