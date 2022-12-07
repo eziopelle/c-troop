@@ -3,27 +3,32 @@
   color: white;
   margin-left: 10px;
 }
+
+.dashbooard {
+  margin-bottom: 5px;
+  background-color: $white;
+}
+
 .all-dashboard {
   background-color: #05152D;
-  margin-bottom: 20px;
-  padding-bottom: 30px;
-  padding-top: 10px;
   height: 100vh;
 }
 
-
+.dashboard-background-white {
+  background-color: white;
+}
 .show-cards {
 //   display: flex;
 //   justify-content: center;
 //   margin: 60px;
 //   border-radius: 10px;
 //   box-shadow: 0 0 15px rgba(0,0,0,0.1)
-  background-color: #22354F;
   color: white;
+  background-color: $red;
 }
 
 .price-dashboard {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .map-dashboard {
@@ -31,15 +36,14 @@
   align-items: flex;
   // display: flex;
   justify-content: center;
-  margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0.1,0.3);
 }
 
 .total-price {
   font-size: 20px;
   display: flex;
-  color: white;
+  justify-content: center;
 }
 
 .dashboard-created-at {
@@ -48,32 +52,79 @@
 
 .flexito {
   display: flex;
-  border-bottom: 10px;
+}
+
+.dashboard-right {
+  justify-content: space-between;
 }
 
 .blockito {
   display: block;
 }
 
-.last-total-price {
+.last-total-price p{
   font-size: 23px;
-  margin-left: 50px;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+
+.show-cards h2 {
+  text-align: center;
+  margin: 5px;
+  color: $green;
+  padding: 10px;
+  font-weight: bold;
+  font-family: $headers-font;
+}
+
+.depense-month {
+  color:#05152D;
+  border-radius: 10px;
+  background-color: $white;
+  margin: 5px;
+  padding: 5px;
+}
+
+.total-sum-per-month-price p {
+  display: flex;
+  color: $green;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.economy-dashboard {
+  text-align: center;
+}
+
+.total-sum-per-month p{
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.economy-dashboard p{
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.logo-c .img {
+  height: 30vh;
+}
+
+.sum-month {
+  position: absolute;
+}
+
+.market-brand p{
+  margin-bottom: 0;
 }
 
 .each-last {
-margin-bottom: 10px;
-padding: 5px;
-}
-
-.show-cards p {
-  color: white;
-  text-align: center;
-  padding-top: 10px;
-  }
-
-
-
-.total-sum-per-month-price p {
-  text-align: center;
-  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+  color:#05152D;
 }

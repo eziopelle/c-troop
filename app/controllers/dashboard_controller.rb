@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 
   def show
     @markets = policy_scope(Market)
+    @markets = current_user.markets
 
     @markers = @markets.geocoded.map do |market|
       image = market.total_price < MarketProduct.average_price ? "ping-vert.png" : "ping-rouge.png"

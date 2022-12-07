@@ -19,6 +19,14 @@ class Ticket < ApplicationRecord
     return @total_sum
   end
 
+  def self.total_markets(month)
+    @total_markets = 0
+    Ticket.all.each do |ticket|
+      @total_markets += ticket.market_id if ticket.created_at.month == month
+    end
+    return @total_markets
+  end
+
   def self.pourcent_economy
     @total_economy = 0
     if (product.mean_price - product.price) > 0
