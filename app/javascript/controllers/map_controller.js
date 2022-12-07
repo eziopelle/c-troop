@@ -24,7 +24,7 @@ export default class extends Controller {
     })
 
     this.addMarkersToMap();
-    // this.fitMapToMarkers();
+    this.fitMapToMarkers();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }))
@@ -162,12 +162,18 @@ export default class extends Controller {
     .addTo(this.map)
   }
 
+  // fitMapToMarkers() {
+  //   const bounds = new mapboxgl.LngLatBounds()
+  //   bounds.extend([this.userLong, this.userLat ])
+  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  // }
+
+
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    bounds.extend([this.userLong, this.userLat ])
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 6000 })
   }
-
 
   success(pos) {
 

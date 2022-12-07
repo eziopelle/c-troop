@@ -61,7 +61,6 @@ Market.create!(brand: "Auchan", address: "35, Rue d’Isly Lille", price_level: 
 Market.create!(brand: "Leclerc", address: "41, Boulevard de la Moselle Lille", price_level: 243 / average, opening_hours: "pas d'horaires", phone_number: "03 20 09 02 02", ping_gris: false)
 Market.create!(brand: "Intermarché Express", address: "105, Rue du Faubourg de Roubaix Lille", price_level: 260 / average, opening_hours: "pas d'horaires", phone_number: "03 20 70 66 00", ping_gris: false)
 Market.create!(brand: "U Express", address: "51, Rue du Buisson Lille", price_level: 268 / average, opening_hours: "pas d'horaires", phone_number: "03 20 55 25 93", ping_gris: false)
-Market.create!(brand: "Intermarché Super", address: "25, Rue Franklin Lille", price_level: 232 / average, opening_hours: "pas d'horaires", phone_number: "03 20 33 22 22", ping_gris: false)
 Market.create!(brand: "Leclerc", address: "94, Rue de Lannoy Lille", price_level: 226 / average, opening_hours: "pas d'horaires", phone_number: "03 20 61 76 17", ping_gris: false)
 Market.create!(brand: "Carrefour Market", address: "268, Rue Pierre Legrand Fives Lille", price_level: 235 / average, opening_hours: "pas d'horaires", phone_number: "09 80 98 09 86", ping_gris: false)
 
