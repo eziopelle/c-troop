@@ -2,5 +2,11 @@
   <% if @tickets.exists? %>
   <%= cl_image_tag @tickets.last.photo.key, height: 500, width: 400, crop: :fill %>
   <% end %>
-  <p style="color: white">Total price: <%= @biggest_number %></p>
+  <p style="color: white">Total price: <%= @ticket.total_price %></p>
+  <p style="color: white">Ticket.market_id: <%= @ticket.market_id %></p>
+  <% if Market.find_by(id: @ticket.market_id) %>
+    <p style="color: white">Market: <%= Market.find_by(id: @ticket.market_id).brand %></p>
+    <p style="color: white">Address: <%= Market.find_by(id: @ticket.market_id).address %></p>
+  <% end %>
+  <p style="color: white">Regex: <%= @regex %></p>
 </div>
