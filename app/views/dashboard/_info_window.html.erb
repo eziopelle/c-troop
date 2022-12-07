@@ -2,9 +2,8 @@
 <p><%= market.address %></p>
 
 <div class="map-info">
-  <h2><%= ((market.price_level * 100) - 100).round(2)%>%</h2>
-  <p>par rapport à la moyenne nationale</p>
+  <p><%= @nb_markets %> tickets enregistrés</p>
 </div>
 
 
-<a class='btn-flat' data-action= "click->map#direction" data-lat=<%=market.latitude%> data-lng=<%=market.longitude%>>20 minutes</a>
+<a class='btn-flat' data-action= "click->map#direction" data-lat=<%=market.latitude%> data-lng=<%=market.longitude%>>minutes</a>
