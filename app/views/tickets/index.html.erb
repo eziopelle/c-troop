@@ -2,5 +2,5 @@
   <% if @tickets.exists? %>
   <%= cl_image_tag @tickets.last.photo.key, height: 500, width: 400, crop: :fill %>
   <% end %>
-  <p style="color: white">Total price: <%= @biggest_number %></p>
+  <p style="color: white">Total price: <%= @total_price %></p>
 </div>

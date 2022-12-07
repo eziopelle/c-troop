@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :text_detection ]
   require "google/cloud/vision/v1"
-  
+
   def index
     @tickets = policy_scope(Ticket)
     text_detection
@@ -46,10 +46,10 @@ class TicketsController < ApplicationController
       end
     end
 
-    biggest_number
+    total_price
   end
 
-  def biggest_number
+  def total_price
     regex = /([^\s]*)(€|EUR)/
     @amounts = []
     @words.each do |word|
@@ -58,7 +58,7 @@ class TicketsController < ApplicationController
     @amounts[0].map! do |amount|
       amount.to_f
     end
-    @biggest_number = @amounts[0].max
+    @total_price = @amounts[0].max
   end
 
   private
