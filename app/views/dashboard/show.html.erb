@@ -12,16 +12,20 @@
 
     <% @total_product = 0 %>
     <% @nb_product = 0 %>
-    <% Ticket.all.each do |total| %>
-      <% total.market.price_level  %>
-      <% @total_product += total.market.price_level - 1%>
-      <% @nb_product += 1  %>
+    <% if Ticket.all != nil %>
+      <% Ticket.all.each do |total| %>
+        <% total.market.price_level unless total.market == nil %>
+        <% @total_product += total.market.price_level - 1 unless total.market == nil %>
+        <% @nb_product += 1  %>
+      <% end %>
     <% end %>
 
   <div class="resume-card">
       <% @total_sum = 0 %>
-      <% Ticket.all.each do |total|  %>
-        <% @total_sum += total.total_price %>
+      <% if Ticket.all != nil %>
+        <% Ticket.all.each do |total| %>
+          <% @total_sum += total.total_price unless total.total_price == nil %>
+        <% end %>
       <% end %>
       <h2>Décembre 2022 </h2>
       <p><%= @nb_product %> tickets enregistrés</p>
@@ -52,7 +56,11 @@
       <% else %>
         <p>Supermarché non identifié</p>
       <% end %>
+      <% if last.market_id != nil %>
       <p><%= last.market.address %></p>
+      <% else %>
+        <p>Adresse non identifiée</p>
+      <% end %>
 
       <div class="price-ticket">
         <h2><%= last.total_price %>€</h2>
