@@ -19,19 +19,19 @@ puts "========= DESTRUCTION DES USERS ========="
 
 puts "========= CREATION DES 4 USERS ========="
 user_1 = User.create!(email: "victor@email.com", password: "victor1234")
-file =  URI.open("https://ca.slack-edge.com/T02NE0241-U045E6YAM2T-182bcc445d87-512")
+file =  URI.open("file:///C:/Users/alass/Downloads/avatar-victor-min.png")
 user_1.photo.attach(io: file, filename: "avatar-victor.png", content_type: "image/png")
 user_1.save
 user_2 = User.create!(email: "mario@email.com", password: "mario1234")
-file =  URI.open("https://ca.slack-edge.com/T02NE0241-U046HLA718Q-6b693044323c-512")
+file =  URI.open("file:///C:/Users/alass/Downloads/avatar_mario-min.png")
 user_2.photo.attach(io: file, filename: "avatar-mario.png", content_type: "image/png")
 user_2.save
 user_3 = User.create!(email: "alassane@email.com", password: "alassane1234")
-file =  URI.open("https://ca.slack-edge.com/T02NE0241-U046K6FQVUG-92244e9429cd-512")
+file =  URI.open("file:///C:/Users/alass/Downloads/avatar-alassane-min.png")
 user_3.photo.attach(io: file, filename: "avatar-alassane.png", content_type: "image/png")
 user_3.save
 user_4 = User.create!(email: "maxence@email.com", password: "maxence1234")
-file =  URI.open("https://ca.slack-edge.com/T02NE0241-U045WD5DGG4-120949574827-512")
+file =  URI.open("file:///C:/Users/alass/Downloads/avatar-maxence-min.png")
 user_4.photo.attach(io: file, filename: "avatar-maxence.png", content_type: "image/png")
 user_4.save
 price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 281, 237, 260, 243, 260, 268, 232, 226, 235]

@@ -32,7 +32,6 @@
         <h2><%= @total_sum.round(2) %> €</h2>
         <%= image_tag "c.svg" %>
       </div>
-
       <div>
       <% if @total_product.negative? %>
         <p><strong> - <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de moins</strong> la moyenne ! 👏</p>
@@ -62,6 +61,5 @@
 
     <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
     </div>
-    <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
       <% end %>
 </div>
