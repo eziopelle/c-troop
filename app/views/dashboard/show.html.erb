@@ -4,7 +4,7 @@
     <h1>Tableau de bord</h1>
   </div>
   <div class="map-dashboard" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-user-marker-value="<%=@user_marker%>">
     <div style="height: 30vh; margin: auto"
       data-map-target="map">
     </div>

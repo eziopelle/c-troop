@@ -1,30 +1,32 @@
 <div class="container">
-  <h2>Sign up</h2>
+<div class="card-login">
+  <h2>Inscription</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
     data: {turbo: false}) do |f| %>  <%= f.error_notification %>
 
->
     <div class="form-inputs">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }, placeholder: "simon@email.com"%>
+                  input_html: { autocomplete: "email" }, placeholder: "emailn@email.com"%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" }, placeholder:"Simon123" %>
+                  input_html: { autocomplete: "new-password" }, placeholder:"*********" %>
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" }, placeholder:"Simon123" %>
       <%= f.input :photo, as: :file %>
 
-    </div>
+      </div>
+</div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Inscription", class: "btn btn-flat" %>
+      </div>
+    <% end %>
+  </div>
 
   <%= render "devise/shared/links" %>
 </div>
