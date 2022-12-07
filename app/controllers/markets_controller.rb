@@ -4,8 +4,16 @@ class MarketsController < ApplicationController
 
     # Marker pour géocoder (vic)
     @markers = @markets.geocoded.map do |market|
-      image = market.total_price < MarketProduct.average_price ? "ping-vert.svg" : "ping-rouge.svg"
-      color = market.total_price < MarketProduct.average_price ? "green" : "red"
+      if market.ping_gris == true
+        image = "ping-gris.svg"
+        color = "gray"
+      elsif market.total_price < MarketProduct.average_price
+        image = "ping-vert.svg"
+        color = "green"
+      else
+        image = "ping-rouge.svg"
+        color = "red"
+      end
       {
         lat: market.latitude,
         lng: market.longitude,
