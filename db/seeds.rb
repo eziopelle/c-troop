@@ -88,12 +88,12 @@ results.each do |result|
   lng = result["geometry"]["location"]['lng']
   name = result["name"]
   google_id = result["place_id"]
-  #if name != "Garden &shop (anciennement le Minh)" || name != "Picard"
+  if name != "Garden &shop (anciennement le Minh)" || name != "Picard"
     geo_localization = "#{lat},#{lng}"
     location = Geocoder.search(geo_localization).first
     address = "#{location.house_number} #{location.street} #{location.city}"
     Market.create!(brand: name, latitude: lat, longitude: lng, google_id: google_id, address: address, ping_gris: true)
-  #end
+  end
 end
 
 Market.all.each do |market|
