@@ -43,3 +43,4 @@
 .env*
 # google credentials
 /config/silent-bird-370111-1ee64a6bf5fc.json
+/config/cest-troop-370311-857b441c45f2.json
