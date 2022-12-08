@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import NewTicketController from "./new_ticket_controller"
+application.register("new-ticket", NewTicketController)
+
 import PhotoPreviewController from "./photo_preview_controller"
 application.register("photo-preview", PhotoPreviewController)

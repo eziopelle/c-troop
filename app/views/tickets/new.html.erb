@@ -1,4 +1,4 @@
-<div class="container new_ticket">
+<div class="container new_ticket" data-controller="new-ticket">
   <div class="mt-5" style="width: 100%; height: 100vh; margin: auto" data-controller="photo-preview">
     <%= simple_form_for(@ticket) do |f| %>
       <%= image_tag "", width: 300, class: "hidden mb-3", id: "photo-preview" %>
