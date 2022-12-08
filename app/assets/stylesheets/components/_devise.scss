@@ -154,4 +154,10 @@ a {
 .form-actions {
   margin-top : 10px;
   margin-bottom: 10px;
+
+  a {
+    background-color: white !important;
+    color: $red !important;
+
+  }
 }
