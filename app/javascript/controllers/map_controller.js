@@ -157,6 +157,7 @@ export default class extends Controller {
     pingMarker.style.backgroundSize = "contain"
     pingMarker.style.width = "30px"
     pingMarker.style.height = "30px"
+
     new mapboxgl.Marker(pingMarker)
     .setLngLat([ userLong, userLat ])
     .addTo(this.map)
