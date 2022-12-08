@@ -123,7 +123,6 @@ puts "========= CHARGEMENT DES PHONES GOOGLE (sans espace :P vic ) ========="
   else
     market.update(opening_hours: "pas d'horaires")
   end
-
 end
 
 puts "========= GENERATION DES PRODUITS ========="
