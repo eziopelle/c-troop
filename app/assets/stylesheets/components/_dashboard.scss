@@ -134,7 +134,10 @@
   background-color: $red;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -142,7 +145,7 @@
 }
 
 .tickets-card {
-  background-color: rgb(33, 32, 32);
+  background-color: rgb(44, 43, 43);
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
@@ -168,9 +171,12 @@ p.date-ticket {
 
 .price-ticket{
   position: relative;
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 150px;
+
   }
 
   h2 {
@@ -220,6 +226,10 @@ p.date-ticket {
     color: $red;
     align-items: center;
     font-weight: bolder;
-    padding-left: 20px;
+    padding-left: 10px;
   }
+}
+
+.icone-dashboard {
+  text-align: center;
 }
