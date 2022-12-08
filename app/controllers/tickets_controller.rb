@@ -51,8 +51,8 @@ class TicketsController < ApplicationController
       end
     end
 
-    total_price
-    detect_brand_address
+    total_price unless @words == []
+    detect_brand_address unless @words == []
   end
 
   def total_price
