@@ -1,17 +1,13 @@
-<div class="container_edit">
-  <h1 class= "text_edit_profile"><%= "Profile" %></h1>
+<div class="container">
     <div class="card-product-profile">
-        <div>
-            <h2 class="h2_edit_profile"><%="Nom"%></h2>
-            <h3 class="h3_edit_profile"><%="Prénom"%></h3>
-            <p class="p_edit_profile"><%="Surnom"%></p>
-        </div>
-        <%= cl_image_tag @current_user.photo.key, class:"avatar" %>
-    </div>
-    <div class="modif_edit_profile">
-        <h4> Modifier <%= resource_name.to_s.humanize %></h4>
+      <%= cl_image_tag @current_user.photo.key, class:"avatar" %>
+      <div>
+        <h1>Profil</h1>
+        <p><%= @current_user.email %></p>
       </div>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"edit_form", style:"background-image:url(#{image_path('logo_Ctroop.png')});"}) do |f| %>
+    </div>
+    <div class="card-login">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"edit_form"}) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
@@ -22,25 +18,30 @@
         <% end %>
 
         <div class="form_edit_profile"><%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
+                    hint: "Laissez cette espace blanc si vous ne voulez pas changer",
                     required: false,
                     input_html: { autocomplete: "new-password" } %></div>
         <div class="form_edit_profile"><%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password" } %></div>
         <div class="form_edit_profile"><%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
+                    hint: "On a besoin de votre mot de passe actuel pour le modifier",
                     required: true,
                     input_html: { autocomplete: "current-password" } %></div>
         <div class="form_edit_profile"><%= f.input :photo, as: :file %></div>
 
       </div>
-      <div class="form-actions"><p><%= f.button :submit, "Update" %></p></div>
+      <div class="form-actions"><p><%= f.button :submit, "Modifier", class: "btn btn-flat" %></p></div>
     <% end %>
 
-    <div class="form_edit_profile"><h3>Cancel my account</h3></div>
+    <div class="form_edit_profile btn btn-flat"><p>Pas content ?<%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, method: :delete, class: "btn btn-flat" %></p></div>
 
-    <div class="form_edit_profile"><p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p></div>
+</div>
 
-    <div class="form_edit_profile"><%= link_to "Back", :back %></div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
