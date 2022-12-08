@@ -3,7 +3,7 @@
     <%= simple_form_for(@ticket) do |f| %>
       <%= image_tag "", width: 300, class: "hidden mb-3", id: "photo-preview" %>
       <%= f.input :photo, as: :file, input_html:  { data: { target: "photo-preview.photo", action: "change->photo-preview#test" }, class: "d-none hidden"},  label_html: { class: 'upload-photo'}, label: 'Prendre une photo ou choisir une image 🧾'  %>
-      <%= f.button :submit, class: 'create-ticket', label: 'Télécharger'  %>
+      <%= f.button :submit, input_html:  { data: { target: "photo-preview.submit", action: "change->photo-preview#test" }},class: "d-none create-ticket", id: "button-submit"  %>
     <% end %>
   </div>
   <div class="bar">
