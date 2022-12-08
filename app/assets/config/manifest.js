@@ -1,29 +1,7 @@
+
+//= link_tree ../images
+//= link_directory ../stylesheets .css
+//= link_tree ../builds
 // app/assets/config/manifest.js
 // ...
 //= link manifest.json
-//= link gif-c.gif
-//= link icons/apple-icon-57x57.png
-//= link icons/apple-icon-60x60.png
-//= link icons/apple-icon-72x72.png
-//= link icons/apple-icon-76x76.png
-//= link icons/apple-icon-114x114.png
-//= link icons/apple-icon-120x120.png
-//= link icons/apple-icon-144x144.png
-//= link icons/apple-icon-152x152.png
-//= link icons/apple-icon-180x180.png
-//= link icons/favicon-32x32.png
-//= link icons/favicon-96x96.png
-//= link icons/favicon-16x16.png
-//= link application.css
-//= link application.js
-//= link logo.png
-//= link banner_fb.jpg
-//= link icone-home.png
-//= link icone-historique.png
-//= link icone-photo.png
-//= link ping-gris.svg
-//= link ping-rouge.svg
-//= link ping-vert.svg
-//= link ping.png
-//= link c.svg
-//= link ping.svg
