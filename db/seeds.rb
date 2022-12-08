@@ -36,7 +36,7 @@ user_4 = User.create!(email: "maxence@email.com", password: "maxence1234")
 file =  URI.open("app/assets/images/avatar-maxence-min.png")
 user_4.photo.attach(io: file, filename: "avatar-maxence.png", content_type: "image/png")
 user_4.save
-price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 281, 237, 260, 243, 260, 268, 226, 235, 258]
+price_level = [258, 263, 240, 228, 260, 253, 228, 255, 247, 248, 258, 258, 238, 228, 250, 260, 281, 237, 260, 243, 260, 268, 226, 235, 258]
 average = price_level.sum / price_level.size.to_f
 
 
