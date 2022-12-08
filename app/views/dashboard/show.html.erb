@@ -12,8 +12,8 @@
 
     <% @total_product = 0 %>
     <% @nb_product = 0 %>
-    <% if Ticket.all != nil %>
-      <% Ticket.all.each do |total| %>
+    <% if @tickets != nil %>
+      <% @tickets.each do |total| %>
         <% total.market.price_level unless total.market == nil %>
         <% @total_product += total.market.price_level - 1 unless total.market == nil %>
         <% @nb_product += 1  %>
@@ -22,8 +22,8 @@
 
   <div class="resume-card">
       <% @total_sum = 0 %>
-      <% if Ticket.all != nil %>
-        <% Ticket.all.each do |total| %>
+      <% if @tickets != nil %>
+        <% @tickets.each do |total| %>
           <% @total_sum += total.total_price unless total.total_price == nil %>
         <% end %>
       <% end %>
@@ -65,7 +65,7 @@
       </div>
 
 
-    <% Ticket.all.reverse.each do |last|  %>
+    <% @tickets.reverse.each do |last|  %>
 
     <% if last.total_price != nil %>
 

@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 
   def show
     @markets = policy_scope(Market)
+    @tickets = current_user.tickets
     average = MarketProduct.average_price
     # Marker pour géocoder (vic)
     @markers = @markets.geocoded.map do |market|
