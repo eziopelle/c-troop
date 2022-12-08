@@ -1,5 +1,5 @@
 meta_product_name : "C-troop"
 meta_title : "Supermarchés - L'inflation c'est TROOOOOOP"
 meta_description : "L'appli qui vous permet de faire des économies"
-meta_image : "logo_Ctroop.png" # doit exister dans `app/assets/images/`
+meta_image : "banner_fb.jpg" # doit exister dans `app/assets/images/`
 twitter_account : "@c-troop" # requis pour les cartes Twitter
