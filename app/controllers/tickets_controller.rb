@@ -51,8 +51,8 @@ class TicketsController < ApplicationController
       end
     end
 
-    total_price unless @words == []
-    detect_brand_address unless @words == []
+    total_price unless @words == [] || @words.nil?
+    detect_brand_address unless @words == [] || @words.nil?
   end
 
   def total_price
