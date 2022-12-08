@@ -70,7 +70,6 @@ class TicketsController < ApplicationController
 
   def detect_brand_address
     match_data = @words[0].match(/(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/)
-    @regex = match_data[0].gsub(" ","")
     @market = Market.find_by(phone_number: match_data[0])
     @ticket.market_id = @market.id unless @market.nil?
   end
