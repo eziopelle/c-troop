@@ -142,13 +142,15 @@
 }
 
 .tickets-card {
-  background-color: $red;
+  background-color: rgb(33, 32, 32);
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
   color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .map-dashboard {
@@ -160,7 +162,6 @@
 
 p.date-ticket {
   color : lightgray;
-  text-align: right;
   font-style: italic;
   margin: 0;
 }
@@ -172,24 +173,39 @@ p.date-ticket {
     width: 150px;
   }
 
+  h2 {
+    position: absolute;
+    top: 27%;
+    left: 15%;
+    color: $green;
+  }
+
 }
-.price-ticket h2 {
-  position: absolute;
-  top: 30%;
-  left: 15%;
-  color: $green;
-}
+
 
 .info-price {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   p {
     margin: 0px;
     align-items: center;
-    strong {
-      color: $green;
-    }
+    // strong {
+    //   color: $green;
+    // }
   }
+  h2 {
+    margin: 0px;
+  }
+
+  strong#moins {
+    color: rgb(189, 189, 189) !important;
+  }
+
+  strong#plus {
+    color: $green !important;
+  }
+
 }
 
 .title-dashboard {

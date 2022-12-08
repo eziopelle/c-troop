@@ -5,7 +5,7 @@
   </div>
   <div class="map-dashboard" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-user-marker-value="<%=@user_marker%>">
-    <div style="height: 30vh; margin: auto"
+    <div style="height: 40vh; margin: auto"
       data-map-target="map">
     </div>
   </div>
@@ -38,9 +38,9 @@
       </div>
       <div>
       <% if @total_product.negative? %>
-        <p><strong> - <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de moins</strong> la moyenne ! 👏</p>
+        <p><strong id="plus"><%=  (((@total_product) * 100)/@nb_product).round(0) %>% de moins</strong> la moyenne ! 👏</p>
       <% elsif @total_product.positive?%>
-        <p><strong> + <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de plus</strong> que la moyenne ! 🥲</p>
+        <p><strong id="moins"><%=  (((@total_product) * 100)/@nb_product).round(0) %>% de plus</strong> que la moyenne ! 🥲</p>
       <% else %>
         <p>Pas d'économies, pas de pertes ce mois-ci</p>
       <% end %>
@@ -51,24 +51,26 @@
 
   <% Ticket.all.reverse.each do |last|  %>
     <div class="tickets-card">
-      <% if last.market_id != nil %>
-        <h2><%= last.market.brand %></h2>
-      <% else %>
-        <p>Supermarché non identifié</p>
-      <% end %>
-      <% if last.market_id != nil %>
-      <p><%= last.market.address %></p>
-      <% else %>
-        <p>Adresse non identifiée</p>
-      <% end %>
+      <div>
+        <% if last.market_id != nil %>
+          <h2><%= last.market.brand %></h2>
+        <% else %>
+          <p>Supermarché non identifié</p>
+        <% end %>
+        <% if last.market_id != nil %>
+        <p><%= last.market.address %></p>
+        <% else %>
+          <p>Adresse non identifiée</p>
+        <% end %>
+        <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
+
+      </div>
 
       <div class="price-ticket">
         <h2><%= last.total_price %>€</h2>
         <%= image_tag "c.svg" %>
-
       </div>
 
-    <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
     </div>
       <% end %>
 </div>
