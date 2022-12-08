@@ -5,9 +5,9 @@
       <%= f.input :photo, as: :file, input_html:  { data: { target: "photo-preview.photo", action: "change->photo-preview#test" }, class: "d-none hidden"},  label_html: { class: 'upload-photo'}, label: 'Prendre une photo ou choisir une image 🧾'  %>
       <%= f.button :submit, class: 'create-ticket', label: 'Télécharger'  %>
     <% end %>
-  </div>
-  <div class="bar">
+    <div class="bar">
     <div class="percentage has-tip"  style="width: 50%" data-perc="50%">
     </div>
+  </div>
   </div>
 </div>
