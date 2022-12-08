@@ -5,7 +5,7 @@
   </div>
   <div class="map-dashboard" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-user-marker-value="<%=@user_marker%>">
-    <div style="height: 30vh; margin: auto"
+    <div style="height: 40vh; margin: auto"
       data-map-target="map">
     </div>
   </div>
@@ -27,8 +27,8 @@
           <% @total_sum += total.total_price unless total.total_price == nil %>
         <% end %>
       <% end %>
-      <h2>Décembre 2022 </h2>
-      <p><%= @nb_product %> tickets enregistrés</p>
+      <h2><i class="fa-solid fa-calendar-days"></i> Décembre 2022 </h2>
+      <p id="p-resume"><%= @nb_product %> tickets enregistrés</p>
 
     <div class="info-price">
 
@@ -38,9 +38,9 @@
       </div>
       <div>
       <% if @total_product.negative? %>
-        <p><strong> - <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de moins</strong> la moyenne ! 👏</p>
+        <p><strong id="plus"><%=  (((@total_product) * 100)/@nb_product).round(0) %>% de moins</strong> la moyenne ! 👏</p>
       <% elsif @total_product.positive?%>
-        <p><strong> + <%=  (((@total_product) * 100)/@nb_product).round(0) %>% de plus</strong> que la moyenne ! 🥲</p>
+        <p><strong id="moins"><%=  (((@total_product) * 100)/@nb_product).round(0) %>% de plus</strong> que la moyenne ! 🥲</p>
       <% else %>
         <p>Pas d'économies, pas de pertes ce mois-ci</p>
       <% end %>
@@ -48,27 +48,53 @@
 
     </div>
   </div>
+       <div class="icone-dashboard">
+        <svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" viewBox="0 0 24 24">
+        <style>
+          .slide-11 {
+            animation: slide-11 1s infinite alternate both cubic-bezier(1, -0.01, 0, 0.98);
+          }
+          @keyframes slide-11 {
+            100% {
+              transform: translateY(2px)
+            }
+          }
+        </style>
+        <path class="slide-11" fill="#0A0A30" d="M6.832 10.516a.857.857 0 111.097-1.317l4.594 3.828L17.117 9.2a.857.857 0 011.098 1.317l-5.132 4.276a.853.853 0 01-.933.123.85.85 0 01-.187-.123l-5.131-4.276z"/>
+      </svg>
+      </div>
 
-  <% Ticket.all.reverse.each do |last|  %>
+
+    <% Ticket.all.reverse.each do |last|  %>
+
+    <% if last.total_price != nil %>
+
+
     <div class="tickets-card">
+      <div>
       <% if last.market_id != nil %>
-        <h2><%= last.market.brand %></h2>
+        <h2><i class="fa-solid fa-shop"></i>    <%= last.market.brand %></h2>
+        <p><%= last.market.address %></p>
       <% else %>
-        <p>Supermarché non identifié</p>
-      <% end %>
-      <% if last.market_id != nil %>
-      <p><%= last.market.address %></p>
-      <% else %>
+        <h2><i class="fa-solid fa-shop"></i>    Supermarché non identifié</h2>
         <p>Adresse non identifiée</p>
       <% end %>
+        <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
+      </div>
 
       <div class="price-ticket">
         <h2><%= last.total_price %>€</h2>
         <%= image_tag "c.svg" %>
-
       </div>
 
-    <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
     </div>
-      <% end %>
+    <% end %>
+    <% end %>
+
+      <div>
+      <br>
+      <br>
+      <br>
+      <br>
+      </div>
 </div>

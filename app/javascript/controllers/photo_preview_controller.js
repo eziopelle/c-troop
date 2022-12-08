@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   displayPreview = (input) => {
-    console.log("on est dans display")
     if (input.files && input.files[0]) {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -23,6 +22,7 @@ export default class extends Controller {
       }
       reader.readAsDataURL(input.files[0])
       document.getElementById('photo-preview').classList.remove('hidden');
+      document.getElementById('button-submit').classList.remove('d-none');
     }
   }
 }

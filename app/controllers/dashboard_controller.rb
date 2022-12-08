@@ -37,5 +37,6 @@ class DashboardController < ApplicationController
     }
 
     @user_marker = helpers.asset_url("ping.png")
+
   end
 end
