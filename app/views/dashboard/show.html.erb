@@ -71,8 +71,8 @@
 
 
     <div class="tickets-card">
+      <% if last.market_id != nil %>
       <div>
-        <% if last.market_id != nil %>
           <h2><i class="fa-solid fa-shop"></i>    <%= last.market.brand %></h2>
         <% else %>
           <p>Supermarché non identifié</p>
@@ -90,10 +90,10 @@
         <h2><%= last.total_price %>€</h2>
         <%= image_tag "c.svg" %>
       </div>
-    <% end %>
 
     </div>
-      <% end %>
+    <% end %>
+    <% end %>
       <div>
       <br>
       <br>
