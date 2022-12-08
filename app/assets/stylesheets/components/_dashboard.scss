@@ -133,16 +133,25 @@
 .resume-card {
   background-color: $red;
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  h2 {
+    margin: 0px;
+  }
+  p#p-resume{
+    margin-bottom: 40px;
+  }
 
 }
 
 .tickets-card {
-  background-color: rgb(33, 32, 32);
+  background-color: rgb(44, 43, 43);
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
@@ -151,6 +160,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .map-dashboard {
@@ -168,14 +178,17 @@ p.date-ticket {
 
 .price-ticket{
   position: relative;
+  justify-content: center;
+  align-items: center;
 
   img {
     width: 150px;
+
   }
 
   h2 {
     position: absolute;
-    top: 27%;
+    top: 32%;
     left: 15%;
     color: $green;
   }
@@ -220,6 +233,10 @@ p.date-ticket {
     color: $red;
     align-items: center;
     font-weight: bolder;
-    padding-left: 20px;
+    padding-left: 10px;
   }
+}
+
+.icone-dashboard {
+  text-align: center;
 }
