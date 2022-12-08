@@ -200,7 +200,7 @@ export default class extends Controller {
   geolocation() {
     this.options = {
       enableHighAccuracy: true,
-      timeout: 5000,
+      timeout: 10000,
       maximumAge: 0
     };
     navigator.geolocation.getCurrentPosition(this.success.bind(this), this.#error, this.options);
