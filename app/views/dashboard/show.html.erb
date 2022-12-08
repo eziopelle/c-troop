@@ -73,16 +73,12 @@
     <div class="tickets-card">
       <% if last.market_id != nil %>
       <div>
-          <h2><i class="fa-solid fa-shop"></i>    <%= last.market.brand %></h2>
-        <% else %>
-          <h2><i class="fa-solid fa-shop"></i>    Supermarché non identifié</h2>
-        <% end %>
-
-        <% if last.market_id != nil %>
-          <p><%= last.market.address %></p>
-        <% else %>
-          <p>Adresse non identifiée</p>
-        <% end %>
+        <h2><i class="fa-solid fa-shop"></i>    <%= last.market.brand %></h2>
+        <p><%= last.market.address %></p>
+      <% else %>
+        <h2><i class="fa-solid fa-shop"></i>    Supermarché non identifié</h2>
+        <p>Adresse non identifiée</p>
+      <% end %>
         <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
       </div>
 
