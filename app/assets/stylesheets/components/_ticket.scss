@@ -1,5 +1,5 @@
 .bar {
-  width: 30em;
+  margin-top: 30px;
   height: 1em;
   position: relative;
   border-radius: 0.5em;
@@ -10,7 +10,7 @@
 .bar .percentage {
   position: relative;
   font-size: 1em;
-  background:rgb(8, 6, 67);
+  background: $red;
   height: 1em;
   border-radius: 0.5em;
   justify-content: center;
