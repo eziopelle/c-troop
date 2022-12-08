@@ -75,15 +75,15 @@
       <div>
           <h2><i class="fa-solid fa-shop"></i>    <%= last.market.brand %></h2>
         <% else %>
-          <p>Supermarché non identifié</p>
+          <h2><i class="fa-solid fa-shop"></i>    Supermarché non identifié</h2>
         <% end %>
+
         <% if last.market_id != nil %>
-        <p><%= last.market.address %></p>
+          <p><%= last.market.address %></p>
         <% else %>
           <p>Adresse non identifiée</p>
         <% end %>
         <p class="date-ticket"><%= last.created_at.strftime('%d/%m/%Y')%></p>
-
       </div>
 
       <div class="price-ticket">
