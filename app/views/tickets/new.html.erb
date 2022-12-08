@@ -1,13 +1,14 @@
 <div class="container new_ticket" data-controller="new-ticket">
+  <div class="bar d-none" data-new-ticket-target="fullbar" >
+    <div data-new-ticket-target="bar" class="percentage has-tip"  style="width: 1%" data-perc="50%">
+    </div>
+    <p data-new-ticket-target="text"></p>
+  </div>
   <div class="mt-5" style="width: 100%; height: 100vh; margin: auto" data-controller="photo-preview">
     <%= simple_form_for(@ticket) do |f| %>
       <%= image_tag "", width: 300, class: "hidden mb-3", id: "photo-preview" %>
       <%= f.input :photo, as: :file, input_html:  { data: { target: "photo-preview.photo", action: "change->photo-preview#test" }, class: "d-none hidden"},  label_html: { class: 'upload-photo'}, label: 'Prendre une photo ou choisir une image 🧾'  %>
-      <%= f.button :submit, class: 'create-ticket', label: 'Télécharger'  %>
+      <%= f.button :submit, class: 'create-ticket', label: 'Télécharger', data: { action: "click->new-ticket#submit" } %>
     <% end %>
-    <div class="bar">
-    <div class="percentage has-tip"  style="width: 50%" data-perc="50%">
-    </div>
-  </div>
   </div>
 </div>
