@@ -133,14 +133,20 @@
 .resume-card {
   background-color: $red;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  h2 {
+    margin: 0px;
+  }
+  p#p-resume{
+    margin-bottom: 40px;
+  }
 
 }
 
@@ -154,6 +160,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .map-dashboard {
@@ -181,7 +188,7 @@ p.date-ticket {
 
   h2 {
     position: absolute;
-    top: 27%;
+    top: 32%;
     left: 15%;
     color: $green;
   }
