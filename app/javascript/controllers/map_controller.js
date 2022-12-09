@@ -23,8 +23,12 @@ export default class extends Controller {
       style: 'mapbox://styles/eziopelle97/clb9esa0t002014n0wfp7olit',
     })
 
+    this.map.flyTo({
+      center: [3.018850, 50.633275],
+      zoom: 15
+      });
     this.addMarkersToMap();
-    this.fitMapToMarkers();
+    // this.fitMapToMarkers();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }))
@@ -161,6 +165,8 @@ export default class extends Controller {
     new mapboxgl.Marker(pingMarker)
     .setLngLat([ userLong, userLat ])
     .addTo(this.map)
+
+
   }
 
   // fitMapToMarkers() {
@@ -170,11 +176,11 @@ export default class extends Controller {
   // }
 
 
-  fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 1000 })
-  }
+  // fitMapToMarkers() {
+  //   const bounds = new mapboxgl.LngLatBounds()
+  //   this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+  //   this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 1000 })
+  // }
 
   success(pos) {
 
@@ -190,7 +196,7 @@ export default class extends Controller {
     this.addUserMarkerToMap(this.userLat, this.userLong);
 
 
-    this.fitMapToMarkers();
+    // this.fitMapToMarkers();
   }
 
   #error(err) {
